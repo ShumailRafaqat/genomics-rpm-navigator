@@ -18,6 +18,15 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "map-pin": MapPin,
 };
 
+const cardColors = [
+  { bg: "bg-primary/8", icon: "text-primary" },
+  { bg: "bg-secondary/8", icon: "text-secondary" },
+  { bg: "bg-accent/8", icon: "text-accent" },
+  { bg: "bg-[hsl(25,95%,55%)]/8", icon: "text-[hsl(25,95%,55%)]" },
+  { bg: "bg-[hsl(265,75%,58%)]/8", icon: "text-[hsl(265,75%,58%)]" },
+  { bg: "bg-[hsl(175,65%,45%)]/8", icon: "text-[hsl(175,65%,45%)]" },
+];
+
 interface ResourceGridProps {
   pipeline: PipelineData;
   onBack: () => void;
@@ -30,10 +39,10 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex flex-wrap items-center justify-center gap-6 mb-10 glass-card rounded-xl p-4"
+        className="flex flex-wrap items-center justify-center gap-6 mb-10 resource-card rounded-xl p-4"
       >
         {pipeline.ltNumber && (
-          <div className="flex items-center gap-2 text-secondary">
+          <div className="flex items-center gap-2 text-primary">
             <Phone className="w-5 h-5" />
             <span className="font-heading font-semibold">LT: {pipeline.ltNumber}</span>
           </div>
@@ -50,6 +59,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {pipeline.resources.map((resource, i) => {
           const IconComp = iconMap[resource.icon] || FileText;
+          const color = cardColors[i % cardColors.length];
           return (
             <motion.a
               key={resource.title}
@@ -61,8 +71,8 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
               transition={{ delay: i * 0.08 }}
               className="resource-card rounded-2xl p-6 flex flex-col items-center text-center gap-3 group cursor-pointer"
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <IconComp className="w-7 h-7 text-primary" />
+              <div className={`w-14 h-14 rounded-xl ${color.bg} flex items-center justify-center transition-colors`}>
+                <IconComp className={`w-7 h-7 ${color.icon}`} />
               </div>
               <span className="font-heading font-semibold text-foreground text-sm leading-tight">
                 {resource.title}
