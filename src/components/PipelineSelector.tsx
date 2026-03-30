@@ -7,10 +7,10 @@ interface PipelineSelectorProps {
   onSelect: (pipeline: PipelineData) => void;
 }
 
-const colors = [
-  { bg: "bg-primary/10", text: "text-primary", hover: "hover:border-primary/40" },
-  { bg: "bg-secondary/10", text: "text-secondary", hover: "hover:border-secondary/40" },
-  { bg: "bg-accent/10", text: "text-accent", hover: "hover:border-accent/40" },
+const pipelineStyles = [
+  "from-[hsl(220,85%,55%)] to-[hsl(265,75%,58%)]",
+  "from-[hsl(340,75%,55%)] to-[hsl(25,95%,55%)]",
+  "from-[hsl(160,65%,42%)] to-[hsl(175,65%,45%)]",
 ];
 
 const PipelineSelector = ({ pipelines, onSelect }: PipelineSelectorProps) => {
@@ -23,22 +23,33 @@ const PipelineSelector = ({ pipelines, onSelect }: PipelineSelectorProps) => {
       >
         Select Pipeline
       </motion.h2>
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="flex flex-wrap justify-center gap-8">
         {pipelines.map((pipeline, i) => {
-          const c = colors[i % colors.length];
+          const gradient = pipelineStyles[i % pipelineStyles.length];
           return (
             <motion.button
               key={pipeline.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.15 }}
+              transition={{ delay: i * 0.15, type: "spring", stiffness: 200 }}
+              whileHover={{ scale: 1.05, y: -8 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => onSelect(pipeline)}
-              className={`resource-card rounded-2xl p-8 w-64 flex flex-col items-center gap-4 cursor-pointer group ${c.hover}`}
+              className={`relative w-60 h-44 rounded-3xl bg-gradient-to-br ${gradient} p-[2px] cursor-pointer group overflow-hidden`}
             >
-              <div className={`w-16 h-16 rounded-xl ${c.bg} flex items-center justify-center transition-colors`}>
-                <GitBranch className={`w-8 h-8 ${c.text}`} />
+              {/* Shimmer effect */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: "linear-gradient(105deg, transparent 40%, hsla(0,0%,100%,0.3) 45%, hsla(0,0%,100%,0.1) 50%, transparent 55%)", backgroundSize: "200% 100%", animation: "shimmer 1.5s infinite" }} />
+              
+              <div className="relative h-full w-full rounded-[22px] bg-card/90 backdrop-blur-sm flex flex-col items-center justify-center gap-4 overflow-hidden">
+                {/* Colored glow behind icon */}
+                <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br ${gradient} rounded-full opacity-10 blur-2xl group-hover:opacity-25 transition-opacity`} />
+                
+                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow`}>
+                  <GitBranch className="w-8 h-8 text-primary-foreground" />
+                </div>
+                <span className="text-lg font-heading font-bold text-foreground">{pipeline.name}</span>
               </div>
-              <span className="text-xl font-heading font-bold text-foreground">{pipeline.name}</span>
             </motion.button>
           );
         })}
