@@ -54,19 +54,7 @@ export const campaigns: CampaignData[] = [
     name: "RPM",
     pipelines: [
       {
-        name: "RPM Pipeline A",
-        pin: "6654",
-        ltNumber: "989-250-5964",
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST | Break: 3:15 EST – 3:30 EST",
-        resources: [
-          { title: "RPM Main Form", icon: "clipboard-list", url: "https://crm-dev.acudial.com/marketing/index.php?source=36025", description: "Primary RPM form" },
-          { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
-          { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
-          { title: "Sales CRM Intake", icon: "file-input", url: "https://biznexuss.com/form/genomics/7k18mgta", description: "Genomics intake form" },
-        ],
-      },
-      {
-        name: "RPM Pipeline B",
+        name: "RPM Campaign",
         pin: "6654",
         ltNumber: "989-250-5964",
         scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST | Break: 3:15 EST – 3:30 EST",
