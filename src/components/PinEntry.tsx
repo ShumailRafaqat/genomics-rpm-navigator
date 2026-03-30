@@ -48,11 +48,11 @@ const PinEntry = ({ correctPin, onSuccess, onBack }: PinEntryProps) => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-16 flex flex-col items-center">
+    <div className="container mx-auto px-4 py-14 flex flex-col items-center">
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="glass-card rounded-2xl p-10 max-w-sm w-full flex flex-col items-center gap-6"
+        className="resource-card rounded-2xl p-10 max-w-sm w-full flex flex-col items-center gap-6"
       >
         <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
           <Lock className="w-8 h-8 text-primary" />
