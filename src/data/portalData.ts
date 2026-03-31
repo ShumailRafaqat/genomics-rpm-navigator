@@ -44,7 +44,6 @@ export const campaigns: CampaignData[] = [
           { title: "CL Intake Form", icon: "clipboard-list", url: "https://dna-formvcm.netlify.app/", description: "GA marketing intake" },
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1bIgfdk_12rDJ8Swy_MnNl0Hh_8uKJNG9v2ec3meiyuw/edit?gid=147741", description: "Service coverage by state" },
           { title: "Quality Guidelines", icon: "file-text", url: "https://docs.google.com/document/d/1Ptl0Mt3pBjDS1Kw9zVoDQfq8pVo8L5qKHwR_2YDNS0Y/edit?tab=t.0", description: "Quality standards document" },
-         
         ],
       },
     ],
@@ -59,6 +58,7 @@ export const campaigns: CampaignData[] = [
         scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST | Break: 3:15 EST – 3:30 EST",
         resources: [
           { title: "RPM Main Form", icon: "clipboard-list", url: "https://crm-dev.acudial.com/marketing/index.php?source=36025", description: "Primary RPM form" },
+          { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
           { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
           { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
           { title: "Sales CRM Intake", icon: "file-input", url: "https://biznexuss.com/form/genomics/7k18mgta", description: "Genomics intake form" },
