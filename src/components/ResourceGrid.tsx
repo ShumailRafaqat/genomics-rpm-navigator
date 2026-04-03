@@ -1,8 +1,20 @@
 import { motion } from "framer-motion";
 import { PipelineData } from "@/data/portalData";
 import {
-  ClipboardList, Brain, ShieldCheck, Search, Briefcase, FileInput,
-  FileText, MessageSquare, Scroll, MapPin, Phone, Clock, ExternalLink
+  ClipboardList, 
+  Brain, 
+  ShieldCheck, 
+  Search, 
+  Briefcase, 
+  FileInput,
+  FileText, 
+  MessageSquare, 
+  Scroll, 
+  MapPin, 
+  Phone, 
+  Clock, 
+  ExternalLink,
+  Stethoscope   // ✅ Added
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -16,6 +28,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "message-square": MessageSquare,
   "scroll": Scroll,
   "map-pin": MapPin,
+  "stethoscope": Stethoscope,     // ✅ Added for Doctors Clinic
 };
 
 const cardGradients = [
@@ -66,6 +79,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
         {pipeline.resources.map((resource, i) => {
           const IconComp = iconMap[resource.icon] || FileText;
           const style = cardGradients[i % cardGradients.length];
+          
           return (
             <motion.a
               key={resource.title}
