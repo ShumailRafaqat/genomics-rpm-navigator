@@ -15,7 +15,7 @@ const AdminGrid = () => {
     { 
       title: "Production Form", 
       icon: FileText, 
-      url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209", 
+      url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", 
       description: "Daily Production Tracking Sheet" 
     },
     { 
