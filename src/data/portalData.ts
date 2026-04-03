@@ -1,15 +1,15 @@
 export const adminResources = [
-  { 
-    title: "Production Form", 
-    icon: "file-text", 
-    url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209", 
-    description: "Daily Production Tracking Sheet" 
+  {
+    title: "Production Form",
+    icon: "file-text",
+    url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209",
+    description: "Daily Production Tracking Sheet"
   },
-  { 
-    title: "Eligibility Portal", 
-    icon: "stethoscope", 
-    url: "https://episodealert.com/login.aspx?ReturnUrl=%2fsecure%2fMyEligibility.aspx", 
-    description: "Patient Eligibility Check Portal" 
+  {
+    title: "Eligibility Portal",
+    icon: "user-check",           // ✅ Changed
+    url: "https://episodealert.com/login.aspx?ReturnUrl=%2fsecure%2fMyEligibility.aspx",
+    description: "Patient Eligibility Check Portal"
   },
 ];
 export const campaigns: CampaignData[] = [
