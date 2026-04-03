@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import {
   FileText,
-  Stethoscope,
+  UserCheck,        // ✅ New Import
   ExternalLink,
 } from "lucide-react";
 
@@ -20,7 +20,7 @@ const AdminGrid = () => {
     },
     { 
       title: "Eligibility Portal", 
-      icon: Stethoscope, 
+      icon: UserCheck,           // ✅ Changed to UserCheck
       url: "https://episodealert.com/login.aspx?ReturnUrl=%2fsecure%2fMyEligibility.aspx", 
       description: "Patient Eligibility Check Portal" 
     },
