@@ -2,7 +2,7 @@ export const adminResources = [
   {
     title: "Production Form",
     icon: "file-text",
-    url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209",
+    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse",
     description: "Daily Production Tracking Sheet"
   },
   {
@@ -38,7 +38,7 @@ export const campaigns: CampaignData[] = [
           { 
             title: "Production Form", 
             icon: "file-text", 
-            url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209", 
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", 
             description: "Daily Production Tracking Sheet" 
           },
 
@@ -63,7 +63,7 @@ export const campaigns: CampaignData[] = [
           { 
             title: "Production Form", 
             icon: "file-text", 
-            url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209", 
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", 
             description: "Daily Production Tracking Sheet" 
           },
 
@@ -79,24 +79,23 @@ export const campaigns: CampaignData[] = [
         name: "RPM Campaign",
         pin: "6654",
         ltNumber: "989-250-5964",
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST | Break: 3:15 EST – 3:30 EST",
+        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:00  – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
         resources: [
-          { title: "RPM Main Form", icon: "clipboard-list", url: "https://crm-dev.acudial.com/marketing/index.php?source=36025", description: "Primary RPM form" },
+      
           { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
           { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
           { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
-          { title: "Sales CRM Intake", icon: "file-input", url: "https://biznexuss.com/form/genomics/7k18mgta", description: "Genomics intake form" },
-          
+      
           // ✅ New - Production Form
           { 
             title: "Production Form", 
             icon: "file-text", 
-            url: "https://docs.google.com/spreadsheets/d/19CHp1YQIeVMJDBH3A2XH9W_gZtsNI5u3pU-MQ0NzBQU/edit?gid=154209", 
+            url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", 
             description: "Daily Production Tracking Sheet" 
           },
 
           { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
-          { title: "Script", icon: "scroll", url: "https://onedrive.live.com/?cid=eef37504b43a5cea&id=EEF37504B43A5CEA!s5c6921b177754b5f9184a2849e35a1", description: "Campaign script document" },
+          { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
         ],
       },
