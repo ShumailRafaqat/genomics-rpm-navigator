@@ -1,3 +1,4 @@
+// src/components/ResourceGrid.tsx
 import { motion } from "framer-motion";
 import { PipelineData } from "@/data/portalData";
 import {
@@ -14,7 +15,8 @@ import {
   Phone, 
   Clock, 
   ExternalLink,
-  Stethoscope   // ✅ Added
+  Stethoscope,
+  Globe,           //  Added for AcuDial Portal
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -28,7 +30,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "message-square": MessageSquare,
   "scroll": Scroll,
   "map-pin": MapPin,
-  "stethoscope": Stethoscope,     // ✅ Added for Doctors Clinic
+  "stethoscope": Stethoscope,
+  "globe": Globe,           // ✅ Added for AcuDial Portal
 };
 
 const cardGradients = [
@@ -74,7 +77,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
         )}
       </motion.div>
 
-      {/* Grid */}
+      {/* Resources Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {pipeline.resources.map((resource, i) => {
           const IconComp = iconMap[resource.icon] || FileText;
