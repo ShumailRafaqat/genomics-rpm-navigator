@@ -1,3 +1,4 @@
+// src/data/portalData.ts
 export const adminResources = [
   {
     title: "Production Form",
@@ -7,12 +8,13 @@ export const adminResources = [
   },
   {
     title: "Eligibility Portal",
-    icon: "user-check",           // ✅ Changed
+    icon: "user-check",
     url: "https://episodealert.com/login.aspx?ReturnUrl=%2fsecure%2fMyEligibility.aspx",
     description: "Patient Eligibility Check Portal"
   },
 ];
-export const campaigns: CampaignData[] = [
+
+export const campaigns = [
   {
     name: "Geonomics",
     pipelines: [
@@ -34,7 +36,6 @@ export const campaigns: CampaignData[] = [
           { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
           { title: "Sales CRM Intake", icon: "file-input", url: "https://biznexuss.com/form/genomics/7k18mgta", description: "Genomics intake form" },
           
-          // ✅ New - Production Form
           { 
             title: "Production Form", 
             icon: "file-text", 
@@ -59,7 +60,6 @@ export const campaigns: CampaignData[] = [
           },
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1bIgfdk_12rDJ8Swy_MnNl0Hh_8uKJNG9v2ec3meiyuw/edit?gid=147741", description: "Service coverage by state" },
           
-          // ✅ New - Production Form
           { 
             title: "Production Form", 
             icon: "file-text", 
@@ -79,14 +79,20 @@ export const campaigns: CampaignData[] = [
         name: "RPM Campaign",
         pin: "6654",
         ltNumber: "989-250-5964",
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30  – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
+        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
         resources: [
-      
           { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
           { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
           { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
-      
-          // ✅ New - Production Form
+
+          //  Added - AcuDial Marketing Portal
+          {
+            title: "AcuDial Portal",
+            icon: "globe",
+            url: "https://crm.acudial.com/marketing/portal.php",
+            description: "AcuDial Marketing / RPM Portal"
+          },
+
           { 
             title: "Production Form", 
             icon: "file-text", 
