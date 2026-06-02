@@ -114,22 +114,16 @@ export const mgsRpmPipeline: PipelineData = {
       title: "Elizabeth-bah-RPM", 
       icon: "file-text", 
       url: "/opening-script.mp3", 
-      description: "Opening Greeting + Introduction",
+      description: "Sample Recording",
       isAudio: true 
     },
     { 
       title: "Jane-Fishkoff-RPM", 
       icon: "file-text", 
       url: "/benefits-pitch.mp3", 
-      description: "Main Benefits Explanation",
+      description: "Sample Recording",
       isAudio: true 
     },
-    { 
-      title: "Audio 3 - Closing Script", 
-      icon: "file-text", 
-      url: "/closing-script.mp3", 
-      description: "Call to Action + Close",
-      isAudio: true 
-    },
+
   ],
 };
