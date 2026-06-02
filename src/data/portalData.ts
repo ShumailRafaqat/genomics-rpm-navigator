@@ -1,9 +1,11 @@
 // src/data/portalData.ts
+
 export interface Resource {
   title: string;
   icon: string;
   url: string;
   description: string;
+  isAudio?: boolean;
 }
 
 export interface PipelineData {
@@ -19,6 +21,7 @@ export interface CampaignData {
   pipelines: PipelineData[];
 }
 
+// ====================== ADMIN RESOURCES ======================
 export const adminResources = [
   {
     title: "Production Form",
@@ -34,6 +37,7 @@ export const adminResources = [
   },
 ];
 
+// ====================== CAMPAIGNS ======================
 export const campaigns: CampaignData[] = [
   {
     name: "Geonomics",
@@ -94,7 +98,7 @@ export const campaigns: CampaignData[] = [
 // ====================== MGs RPM ======================
 export const mgsRpmPipeline: PipelineData = {
   name: "MGs RPM",
-  pin: "5567",   // ← Change this PIN if needed
+  pin: "5567",
   ltNumber: "989-250-5964",
   scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
   resources: [
@@ -102,13 +106,30 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
     { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
-    { 
-      title: "AcuDial Login", 
-      icon: "globe", 
-      url: "https://crm.acudial.com/marketing/login/", 
-      description: "AcuDial Marketing Login Portal" 
-    },
     { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
+
+    //  3 Audio Cards (Direct Public Folder)
+    { 
+      title: "Elizabeth-bah-RPM", 
+      icon: "file-text", 
+      url: "/opening-script.mp3", 
+      description: "Opening Greeting + Introduction",
+      isAudio: true 
+    },
+    { 
+      title: "Jane-Fishkoff-RPM", 
+      icon: "file-text", 
+      url: "/benefits-pitch.mp3", 
+      description: "Main Benefits Explanation",
+      isAudio: true 
+    },
+    { 
+      title: "Audio 3 - Closing Script", 
+      icon: "file-text", 
+      url: "/closing-script.mp3", 
+      description: "Call to Action + Close",
+      isAudio: true 
+    },
   ],
 };
