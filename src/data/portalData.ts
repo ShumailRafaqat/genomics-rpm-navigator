@@ -113,7 +113,7 @@ export const mgsRpmPipeline: PipelineData = {
     { 
       title: "Elizabeth-bah-RPM", 
       icon: "file-text", 
-      url: "@/assets/benefits-pitch.mp3"", 
+      url: "/opening-script.mp3", 
       description: "Opening Greeting + Introduction",
       isAudio: true 
     },
