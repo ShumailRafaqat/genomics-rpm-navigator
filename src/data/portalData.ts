@@ -102,6 +102,12 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
     { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
+    { 
+      title: "AcuDial Login", 
+      icon: "globe", 
+      url: "https://crm.acudial.com/marketing/login/", 
+      description: "AcuDial Marketing Login Portal" 
+    },
     { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
   ],
