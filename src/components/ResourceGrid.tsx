@@ -1,5 +1,5 @@
-// src/components/ResourceGrid.tsx
 import { motion } from "framer-motion";
+import { useState, useRef } from "react";
 import { PipelineData } from "@/data/portalData";
 import {
   ClipboardList, 
@@ -16,7 +16,10 @@ import {
   Clock, 
   ExternalLink,
   Stethoscope,
-  Globe,           //  Added for AcuDial Portal
+  Globe,
+  Play,
+  Pause,
+  Volume2,
 } from "lucide-react";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -31,7 +34,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "scroll": Scroll,
   "map-pin": MapPin,
   "stethoscope": Stethoscope,
-  "globe": Globe,           // ✅ Added for AcuDial Portal
+  "globe": Globe,
 };
 
 const cardGradients = [
@@ -48,6 +51,50 @@ interface ResourceGridProps {
   pipeline: PipelineData;
   onBack: () => void;
 }
+
+// Audio Player Component
+const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const togglePlay = () => {
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div className="w-full mt-3">
+      <audio 
+        ref={audioRef} 
+        src={url} 
+        onEnded={() => setIsPlaying(false)}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+      />
+      
+      <button
+        onClick={togglePlay}
+        className="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3 rounded-xl text-sm"
+      >
+        {isPlaying ? (
+          <>
+            <Pause className="w-4 h-4" /> Pause Audio
+          </>
+        ) : (
+          <>
+            <Play className="w-4 h-4" /> Play Audio
+          </>
+        )}
+      </button>
+    </div>
+  );
+};
 
 const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
   return (
@@ -82,13 +129,11 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
         {pipeline.resources.map((resource, i) => {
           const IconComp = iconMap[resource.icon] || FileText;
           const style = cardGradients[i % cardGradients.length];
-          
+          const isAudio = (resource as any).isAudio === true;
+
           return (
-            <motion.a
+            <motion.div
               key={resource.title}
-              href={resource.url}
-              target="_blank"
-              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.07, type: "spring", stiffness: 200 }}
@@ -98,6 +143,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
               style={{ background: `linear-gradient(135deg, ${style.glow}, transparent)` }}
             >
               <div className="relative h-full bg-card rounded-[15px] p-5 flex flex-col items-center text-center gap-3 overflow-hidden">
+
                 {/* Background glow */}
                 <div
                   className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-10 group-hover:opacity-25 blur-2xl transition-opacity duration-300"
@@ -105,17 +151,38 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 />
 
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow`}>
-                  <IconComp className="w-7 h-7 text-primary-foreground" />
+                  {isAudio ? (
+                    <Volume2 className="w-7 h-7 text-primary-foreground" />
+                  ) : (
+                    <IconComp className="w-7 h-7 text-primary-foreground" />
+                  )}
                 </div>
+
                 <span className="font-heading font-semibold text-foreground text-sm leading-tight">
                   {resource.title}
                 </span>
+
                 {resource.description && (
-                  <span className="text-xs text-muted-foreground line-clamp-2">{resource.description}</span>
+                  <span className="text-xs text-muted-foreground line-clamp-2 px-2">
+                    {resource.description}
+                  </span>
                 )}
-                <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity mt-auto" />
+
+                {/* Audio Player */}
+                {isAudio ? (
+                  <AudioPlayer url={resource.url} title={resource.title} />
+                ) : (
+                  <a
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto"
+                  >
+                    <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                )}
               </div>
-            </motion.a>
+            </motion.div>
           );
         })}
       </div>
