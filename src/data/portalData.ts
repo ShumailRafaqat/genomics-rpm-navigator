@@ -128,8 +128,8 @@ export const mgsRpmPipeline: PipelineData = {
     {
       title: "RPM Criteria",
       icon: "file-text",
-      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCoFbYS7Z4-Srm8VdZFGt1hAew6ijDo29Y33PvCoaH5QxU",
-      description: "RPM Criteria Document",
+      url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
+      description: "RPM Criteria ",
     },
   ],
 };
