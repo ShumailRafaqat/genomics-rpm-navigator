@@ -1,5 +1,4 @@
 // src/data/portalData.ts
-
 export interface Resource {
   title: string;
   icon: string;
@@ -109,21 +108,28 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
 
-    //  3 Audio Cards (Direct Public Folder)
-    { 
-      title: "Elizabeth-bah-RPM", 
-      icon: "file-text", 
-      url: "/opening-script.mp3", 
+    // Audio Cards
+    {
+      title: "Elizabeth-bah-RPM",
+      icon: "file-text",
+      url: "/opening-script.mp3",
       description: "Sample Recording",
-      isAudio: true 
+      isAudio: true
     },
-    { 
-      title: "Jane-Fishkoff-RPM", 
-      icon: "file-text", 
-      url: "/benefits-pitch.mp3", 
+    {
+      title: "Jane-Fishkoff-RPM",
+      icon: "file-text",
+      url: "/benefits-pitch.mp3",
       description: "Sample Recording",
-      isAudio: true 
+      isAudio: true
     },
 
+    // RPM Criteria PDF (Added from attachment)
+    {
+      title: "RPM Criteria",
+      icon: "file-text",
+      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCoFbYS7Z4-Srm8VdZFGt1hAew6ijDo29Y33PvCoaH5QxU",
+      description: "RPM Criteria Document",
+    },
   ],
 };
