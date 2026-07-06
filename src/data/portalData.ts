@@ -6,7 +6,6 @@ export interface Resource {
   description: string;
   isAudio?: boolean;
 }
-
 export interface PipelineData {
   name: string;
   pin: string;
@@ -14,12 +13,10 @@ export interface PipelineData {
   scheduleInfo?: string;
   resources: Resource[];
 }
-
 export interface CampaignData {
   name: string;
   pipelines: PipelineData[];
 }
-
 // ====================== ADMIN RESOURCES ======================
 export const adminResources = [
   {
@@ -35,7 +32,6 @@ export const adminResources = [
     description: "Patient Eligibility Check Portal"
   },
 ];
-
 // ====================== CAMPAIGNS ======================
 export const campaigns: CampaignData[] = [
   {
@@ -93,7 +89,6 @@ export const campaigns: CampaignData[] = [
     ],
   },
 ];
-
 // ====================== MGs RPM ======================
 export const mgsRpmPipeline: PipelineData = {
   name: "MGs RPM",
@@ -104,10 +99,10 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
     { title: "SMS Consent Tool", icon: "message-square", url: "https://programmingspecialistsmsapirelay-ekfjevaaapgnfrcy.eastus-01.azurewebsites.net/", description: "SMS consent management" },
     { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
+    { title: "RPM Main portal", icon: "globe", url: "https://crm.acudial.com/marketing/login/2fa.php", description: "RPM Main Portal Login" },
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
     { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
-
     // Audio Cards
     {
       title: "Elizabeth-bah-RPM",
@@ -123,7 +118,6 @@ export const mgsRpmPipeline: PipelineData = {
       description: "Sample Recording",
       isAudio: true
     },
-
     // RPM Criteria PDF (Added from attachment)
     {
       title: "RPM Criteria",
