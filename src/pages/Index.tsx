@@ -16,10 +16,10 @@ const Index = () => {
   const [selectedCampaign, setSelectedCampaign] = useState<CampaignData | null>(null);
   const [selectedPipeline, setSelectedPipeline] = useState<PipelineData | null>(null);
   const [isMgsRpm, setIsMgsRpm] = useState(false);
-  const [isHomeHealth, setIsHomeHealth] = useState(false);   // New state for Home Health
+  const [isHomeHealth, setIsHomeHealth] = useState(false);
 
   const handleSelectCampaign = (name: string) => {
-    // Home Health Services - Direct PIN (jaise MGs RPM)
+    // Home Health Services - Direct PIN with 5567
     if (name === "Home Health Services") {
       setIsMgsRpm(false);
       setIsHomeHealth(true);
@@ -49,7 +49,7 @@ const Index = () => {
       return;
     }
 
-    // Normal Campaigns (Geonomics, RPM, etc.)
+    // Normal Campaigns
     const campaign = campaigns.find((c) => c.name === name);
     if (!campaign) return;
 
@@ -71,7 +71,7 @@ const Index = () => {
       setStep("resources");
     } 
     else if (isHomeHealth) {
-      // Home Health Services ka pipeline directly set karo
+      // Home Health Services Pipeline
       const homeHealthCampaign = campaigns.find(c => c.name === "Home Health Services");
       const homeHealthPipeline = homeHealthCampaign?.pipelines[0] || null;
       
@@ -84,7 +84,6 @@ const Index = () => {
       // Admin
       setStep("admin");
     } else {
-      // Normal campaign
       setStep("resources");
     }
   };
@@ -161,11 +160,9 @@ const Index = () => {
           <motion.div key="pin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <PinEntry
               correctPin={
-                isMgsRpm 
-                  ? mgsRpmPipeline.pin 
-                  : isHomeHealth 
-                    ? "6654"   // Home Health ka pin (agar alag pin hai to yahan change kar dena)
-                    : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
+                isMgsRpm || isHomeHealth 
+                  ? "5567" 
+                  : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
               onBack={isMgsRpm || isHomeHealth || !selectedCampaign ? handleBackHome : handleBackToPipelines}
