@@ -90,10 +90,10 @@ export const campaigns: CampaignData[] = [
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
           // Jordan Smith Form
           { 
-            title: "Jordan Smith Form", 
+            title: "LNS", 
             icon: "file-text", 
             url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform", 
-            description: "Jordan Smith Intake Form" 
+            description: "LNS Intake Form"
           },
         ],
       },
@@ -105,15 +105,14 @@ export const campaigns: CampaignData[] = [
       {
         name: "Home Health Pipeline",
           pin: "5567",
-        ltNumber: "989-250-5964",
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
+      
         resources: [
           // Jordan Smith Form added here as requested
           { 
-            title: "Jordan Smith Form", 
+           title: "LNS", 
             icon: "file-text", 
             url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform", 
-            description: "Jordan Smith Intake Form" 
+            description: "LNS Intake Form"
           },
          
         ],
