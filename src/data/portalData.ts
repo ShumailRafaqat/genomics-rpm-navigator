@@ -92,7 +92,7 @@ export const campaigns: CampaignData[] = [
           { 
             title: "LNS", 
             icon: "file-text", 
-            url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1", 
             description: "LNS Intake Form"
           },
         ],
@@ -111,7 +111,7 @@ export const campaigns: CampaignData[] = [
           { 
            title: "LNS", 
             icon: "file-text", 
-            url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform", 
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1", 
             description: "LNS Intake Form"
           },
          
