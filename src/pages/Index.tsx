@@ -16,28 +16,45 @@ const Index = () => {
   const [selectedCampaign, setSelectedCampaign] = useState<CampaignData | null>(null);
   const [selectedPipeline, setSelectedPipeline] = useState<PipelineData | null>(null);
   const [isMgsRpm, setIsMgsRpm] = useState(false);
+  const [isHomeHealth, setIsHomeHealth] = useState(false);   // New state for Home Health
 
   const handleSelectCampaign = (name: string) => {
+    // Home Health Services - Direct PIN (jaise MGs RPM)
+    if (name === "Home Health Services") {
+      setIsMgsRpm(false);
+      setIsHomeHealth(true);
+      setSelectedCampaign(null);
+      setSelectedPipeline(null);
+      setStep("pin");
+      return;
+    }
+
+    // MGs RPM - Direct PIN
     if (name === "MGs RPM") {
       setIsMgsRpm(true);
+      setIsHomeHealth(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
 
+    // Admin
     if (name === "Admin") {
       setIsMgsRpm(false);
+      setIsHomeHealth(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
 
+    // Normal Campaigns (Geonomics, RPM, etc.)
     const campaign = campaigns.find((c) => c.name === name);
     if (!campaign) return;
 
     setIsMgsRpm(false);
+    setIsHomeHealth(false);
     setSelectedCampaign(campaign);
     setSelectedPipeline(null);
     setStep("pipeline");
@@ -52,7 +69,18 @@ const Index = () => {
     if (isMgsRpm) {
       setSelectedPipeline(mgsRpmPipeline);
       setStep("resources");
-    } else if (!selectedCampaign) {
+    } 
+    else if (isHomeHealth) {
+      // Home Health Services ka pipeline directly set karo
+      const homeHealthCampaign = campaigns.find(c => c.name === "Home Health Services");
+      const homeHealthPipeline = homeHealthCampaign?.pipelines[0] || null;
+      
+      if (homeHealthPipeline) {
+        setSelectedPipeline(homeHealthPipeline);
+      }
+      setStep("resources");
+    } 
+    else if (!selectedCampaign) {
       // Admin
       setStep("admin");
     } else {
@@ -63,9 +91,10 @@ const Index = () => {
 
   const handleBackToPipelines = () => {
     setSelectedPipeline(null);
-    if (isMgsRpm) {
+    if (isMgsRpm || isHomeHealth) {
       setStep("home");
       setIsMgsRpm(false);
+      setIsHomeHealth(false);
     } else {
       setStep("pipeline");
     }
@@ -75,6 +104,7 @@ const Index = () => {
     setSelectedCampaign(null);
     setSelectedPipeline(null);
     setIsMgsRpm(false);
+    setIsHomeHealth(false);
     setStep("home");
   };
 
@@ -87,13 +117,23 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar
-        selectedCampaign={isMgsRpm ? "MGs RPM" : selectedCampaign?.name || null}
+        selectedCampaign={
+          isMgsRpm 
+            ? "MGs RPM" 
+            : isHomeHealth 
+              ? "Home Health Services" 
+              : selectedCampaign?.name || null
+        }
         onSelectCampaign={handleSelectCampaign}
       />
 
       <HeroSection 
         selectedCampaign={
-          isMgsRpm ? "MGs RPM" : (selectedCampaign?.name || (step === "admin" ? "Admin Portal" : null))
+          isMgsRpm 
+            ? "MGs RPM" 
+            : isHomeHealth 
+              ? "Home Health Services" 
+              : (selectedCampaign?.name || (step === "admin" ? "Admin Portal" : null))
         } 
       />
 
@@ -120,9 +160,15 @@ const Index = () => {
         {step === "pin" && (
           <motion.div key="pin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <PinEntry
-              correctPin={isMgsRpm ? mgsRpmPipeline.pin : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")}
+              correctPin={
+                isMgsRpm 
+                  ? mgsRpmPipeline.pin 
+                  : isHomeHealth 
+                    ? "6654"   // Home Health ka pin (agar alag pin hai to yahan change kar dena)
+                    : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
+              }
               onSuccess={handlePinSuccess}
-              onBack={isMgsRpm || !selectedCampaign ? handleBackHome : handleBackToPipelines}
+              onBack={isMgsRpm || isHomeHealth || !selectedCampaign ? handleBackHome : handleBackToPipelines}
             />
           </motion.div>
         )}
@@ -143,10 +189,12 @@ const Index = () => {
       <AnimatePresence>
         {step !== "home" && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed bottom-6 right-6 z-50">
-            <button onClick={step === "admin" || step === "pipeline" || isMgsRpm ? handleBackHome : handleBackToPipelines}
-              className="group flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-xl shadow-md hover:shadow-lg active:scale-[0.96] transition-all duration-300">
+            <button 
+              onClick={step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth ? handleBackHome : handleBackToPipelines}
+              className="group flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-xl shadow-md hover:shadow-lg active:scale-[0.96] transition-all duration-300"
+            >
               <span className="group-hover:-translate-x-0.5 transition-transform duration-200 text-base">←</span>
-              {step === "admin" || step === "pipeline" || isMgsRpm ? "Back to Home" : "Back"}
+              {step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth ? "Back to Home" : "Back"}
             </button>
           </motion.div>
         )}
