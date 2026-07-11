@@ -128,8 +128,8 @@ export const campaigns: CampaignData[] = [
           { 
             title: "Home Health Services", 
             icon: "file-text", 
-            url: "#", 
-            description: "Home Health Services Resources" 
+            url: "https://drive.google.com/file/d/1BaaIDX4hdKiwGWgntwomUFcKqCO9RBQn/view?usp=sharing", 
+            description: "Home Health Services Call Script" 
           }
         ],
       },
