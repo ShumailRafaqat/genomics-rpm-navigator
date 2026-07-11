@@ -104,7 +104,7 @@ export const campaigns: CampaignData[] = [
     pipelines: [
       {
         name: "Home Health Pipeline",
-        pin: "5567",
+          pin: "5567",
         ltNumber: "989-250-5964",
         scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
         resources: [
@@ -126,8 +126,7 @@ export const campaigns: CampaignData[] = [
 export const mgsRpmPipeline: PipelineData = {
   name: "MGs RPM",
   pin: "5567",
-  ltNumber: "989-250-5964",
-  scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
+  
   resources: [
     { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
     // SMS Consent Tool and Sales CRM removed as requested
