@@ -123,7 +123,13 @@ export const campaigns: CampaignData[] = [
             title: "Qualification Criteria", 
             icon: "file-text", 
             url: "#", 
-            description: "Home Health Qualification Criteria (Update link later)" 
+            description: "Home Health Qualification Criteria" 
+          },
+          { 
+            title: "Home Health Services", 
+            icon: "file-text", 
+            url: "#", 
+            description: "Home Health Services Resources" 
           }
         ],
       },
