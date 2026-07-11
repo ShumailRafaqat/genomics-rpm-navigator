@@ -122,7 +122,7 @@ export const campaigns: CampaignData[] = [
           { 
             title: "Qualification Criteria", 
             icon: "file-text", 
-            url: "#", 
+            url: "https://drive.google.com/file/d/1fExB1L5-EyirRmNYLq8fXXTGNST8WhUF/view?usp=sharing", 
             description: "Home Health Qualification Criteria" 
           },
           { 
