@@ -104,16 +104,27 @@ export const campaigns: CampaignData[] = [
       {
         name: "Home Health Pipeline",
         pin: "5567",
-        ltNumber: "989-250-5964",  // LT Number wapas add kiya
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)", // Schedule Time wapas add kiya
+        ltNumber: "989-250-5964",
+        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
         resources: [
           { 
             title: "LNS", 
             icon: "file-text", 
             url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1", 
             description: "LNS Intake Form" 
+          },
+          { 
+            title: "Home health CA Zip codes coverage", 
+            icon: "map-pin", 
+            url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing", 
+            description: "California Zip Codes Coverage" 
+          },
+          { 
+            title: "Qualification Criteria", 
+            icon: "file-text", 
+            url: "#", 
+            description: "Home Health Qualification Criteria (Update link later)" 
           }
-          // Sirf LNS Form rakha hai, baaki sab remove kar diya
         ],
       },
     ],
