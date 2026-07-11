@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 
 const Navbar = ({ selectedCampaign, onSelectCampaign }: NavbarProps) => {
-  const allOptions = ["Geonomics", "RPM", "MGs RPM", "Admin", "Others"];
+  const allOptions = ["Geonomics", "RPM", "Home Health Services", "MGs RPM", "Admin", "Others"];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
