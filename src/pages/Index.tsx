@@ -117,23 +117,23 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar
         selectedCampaign={
-          isMgsRpm 
-            ? "MGs RPM" 
-            : isHomeHealth 
-              ? "Home Health Services" 
+          isMgsRpm
+            ? "MGs RPM"
+            : isHomeHealth
+              ? "Home Health Services"
               : selectedCampaign?.name || null
         }
         onSelectCampaign={handleSelectCampaign}
       />
 
-      <HeroSection 
+      <HeroSection
         selectedCampaign={
-          isMgsRpm 
-            ? "MGs RPM" 
-            : isHomeHealth 
-              ? "Home Health Services" 
+          isMgsRpm
+            ? "MGs RPM"
+            : isHomeHealth
+              ? "Home Health Services"
               : (selectedCampaign?.name || (step === "admin" ? "Admin Portal" : null))
-        } 
+        }
       />
 
       <AnimatePresence mode="wait">
@@ -160,9 +160,11 @@ const Index = () => {
           <motion.div key="pin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <PinEntry
               correctPin={
-                isMgsRpm || isHomeHealth 
+                isMgsRpm 
                   ? "5567" 
-                  : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
+                  : isHomeHealth 
+                    ? "1128" 
+                    : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
               onBack={isMgsRpm || isHomeHealth || !selectedCampaign ? handleBackHome : handleBackToPipelines}
@@ -186,7 +188,7 @@ const Index = () => {
       <AnimatePresence>
         {step !== "home" && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed bottom-6 right-6 z-50">
-            <button 
+            <button
               onClick={step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth ? handleBackHome : handleBackToPipelines}
               className="group flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-xl shadow-md hover:shadow-lg active:scale-[0.96] transition-all duration-300"
             >
