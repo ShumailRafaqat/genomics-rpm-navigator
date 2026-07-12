@@ -88,11 +88,11 @@ export const campaigns: CampaignData[] = [
           { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
           { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
-          { 
-            title: "Jordan Smith Form", 
-            icon: "file-text", 
-            url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform", 
-            description: "Jordan Smith Intake Form" 
+          {
+            title: "Jordan Smith Form",
+            icon: "file-text",
+            url: "https://docs.google.com/forms/u/8/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4/viewform",
+            description: "Jordan Smith Intake Form"
           },
         ],
       },
@@ -102,33 +102,33 @@ export const campaigns: CampaignData[] = [
     name: "Home Health Services",
     pipelines: [
       {
-       name: "Home Health Pipeline",
-      pin: "1128",
-      scheduleInfo: "California 9 AM - 5 PM PST",   // Updated as requested
+        name: "Home Health Pipeline",
+        pin: "1128",
+        scheduleInfo: "Campaign Timing: California 9 AM - 5 PM PST",
         resources: [
-          { 
-            title: "LNS", 
-            icon: "file-text", 
-            url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1", 
-            description: "LNS Request Form" 
+          {
+            title: "LNS",
+            icon: "file-text",
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1",
+            description: "LNS Request Form"
           },
-          { 
-            title: "Home health CA Zip codes coverage", 
-            icon: "map-pin", 
-            url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing", 
-            description: "California Zip Codes Coverage" 
+          {
+            title: "Home health CA Zip codes coverage",
+            icon: "map-pin",
+            url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing",
+            description: "California Zip Codes Coverage"
           },
-          { 
-            title: "Qualification Criteria", 
-            icon: "file-text", 
-            url: "https://drive.google.com/file/d/1hspPqBLiezwY5dQPtEUhm6FhhOhnFl1w/view?usp=sharing", 
-            description: "Home Health Qualification Criteria" 
+          {
+            title: "Qualification Criteria",
+            icon: "file-text",
+            url: "https://drive.google.com/file/d/1hspPqBLiezwY5dQPtEUhm6FhhOhnFl1w/view?usp=sharing",
+            description: "Home Health Qualification Criteria"
           },
-          { 
-            title: "Home Health Services", 
-            icon: "file-text", 
-            url: "https://drive.google.com/file/d/1BaaIDX4hdKiwGWgntwomUFcKqCO9RBQn/view?usp=sharing", 
-            description: "Home Health Services Call Script" 
+          {
+            title: "Home Health Services",
+            icon: "file-text",
+            url: "https://drive.google.com/file/d/1BaaIDX4hdKiwGWgntwomUFcKqCO9RBQn/view?usp=sharing",
+            description: "Home Health Services Call Script"
           }
         ],
       },
