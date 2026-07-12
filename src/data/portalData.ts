@@ -103,7 +103,7 @@ export const campaigns: CampaignData[] = [
     pipelines: [
       {
         name: "Home Health Pipeline",
-        pin: "5567",
+        pin: "1128",
         ltNumber: "989-250-5964",
         scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
         resources: [
@@ -111,7 +111,7 @@ export const campaigns: CampaignData[] = [
             title: "LNS", 
             icon: "file-text", 
             url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1", 
-            description: "LNS Intake Form" 
+            description: "LNS Request Form" 
           },
           { 
             title: "Home health CA Zip codes coverage", 
@@ -122,7 +122,7 @@ export const campaigns: CampaignData[] = [
           { 
             title: "Qualification Criteria", 
             icon: "file-text", 
-            url: "https://drive.google.com/file/d/1fExB1L5-EyirRmNYLq8fXXTGNST8WhUF/view?usp=sharing", 
+            url: "https://drive.google.com/file/d/1hspPqBLiezwY5dQPtEUhm6FhhOhnFl1w/view?usp=sharing", 
             description: "Home Health Qualification Criteria" 
           },
           { 
