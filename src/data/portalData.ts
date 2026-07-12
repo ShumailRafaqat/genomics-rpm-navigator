@@ -102,10 +102,9 @@ export const campaigns: CampaignData[] = [
     name: "Home Health Services",
     pipelines: [
       {
-        name: "Home Health Pipeline",
-        pin: "1128",
-        ltNumber: "989-250-5964",
-        scheduleInfo: "Lunch: 12:30 EST – 1:00 PM EST (9:30 – 10:00 PK) | Break: 3:15 EST – 3:30 EST (12:15 - 12:30 PK)",
+       name: "Home Health Pipeline",
+      pin: "1128",
+      scheduleInfo: "California 9 AM - 5 PM PST",   // Updated as requested
         resources: [
           { 
             title: "LNS", 
