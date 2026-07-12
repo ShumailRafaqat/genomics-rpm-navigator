@@ -19,7 +19,7 @@ const Index = () => {
   const [isHomeHealth, setIsHomeHealth] = useState(false);
 
   const handleSelectCampaign = (name: string) => {
-    // Home Health Services - Direct PIN with 5567
+    // Home Health Services - Direct PIN with 1128
     if (name === "Home Health Services") {
       setIsMgsRpm(false);
       setIsHomeHealth(true);
