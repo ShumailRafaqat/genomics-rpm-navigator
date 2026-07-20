@@ -169,12 +169,12 @@ export const mgsRpmPipeline: PipelineData = {
     },
      // Video (Screen pe play hoga)
     {
-    
+       
+      icon: "video",
       url: "/video6.mp4",
       description: "Sample Video",
       isVideo: true
-      title: "Video 6",
-      icon: "video",
+     
     },
   ],
 };
