@@ -159,20 +159,21 @@ export const mgsRpmPipeline: PipelineData = {
       description: "Sample Recording",
       isAudio: true
     },
-    // Video (Screen pe play hoga)
-    {
-      title: "Video 6",
-      icon: "video",
-      url: "/video6.mp4",
-      description: "Sample Video",
-      isVideo: true
-    },
+   
     // RPM Criteria PDF
     {
       title: "RPM Criteria",
       icon: "file-text",
       url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
       description: "RPM Criteria ",
+    },
+     // Video (Screen pe play hoga)
+    {
+      title: "Video 6",
+      icon: "video",
+      url: "/video6.mp4",
+      description: "Sample Video",
+      isVideo: true
     },
   ],
 };
