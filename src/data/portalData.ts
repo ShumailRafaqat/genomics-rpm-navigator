@@ -6,7 +6,6 @@ export interface Resource {
   description: string;
   isAudio?: boolean;
 }
-
 export interface PipelineData {
   name: string;
   pin: string;
@@ -14,12 +13,10 @@ export interface PipelineData {
   scheduleInfo?: string;
   resources: Resource[];
 }
-
 export interface CampaignData {
   name: string;
   pipelines: PipelineData[];
 }
-
 // ====================== ADMIN RESOURCES ======================
 export const adminResources = [
   {
@@ -35,7 +32,6 @@ export const adminResources = [
     description: "Patient Eligibility Check Portal"
   },
 ];
-
 // ====================== CAMPAIGNS ======================
 export const campaigns: CampaignData[] = [
   {
@@ -135,7 +131,6 @@ export const campaigns: CampaignData[] = [
     ],
   },
 ];
-
 // ====================== MGs RPM ======================
 export const mgsRpmPipeline: PipelineData = {
   name: "MGs RPM",
@@ -162,6 +157,13 @@ export const mgsRpmPipeline: PipelineData = {
       url: "/benefits-pitch.mp3",
       description: "Sample Recording",
       isAudio: true
+    },
+    // Video Added
+    {
+      title: "Video 6",
+      icon: "video",
+      url: "/video6.mp4",
+      description: "Sample Video"
     },
     // RPM Criteria PDF
     {
