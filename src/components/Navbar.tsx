@@ -1,4 +1,3 @@
-// src/components/Navbar.tsx
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -8,7 +7,15 @@ interface NavbarProps {
 }
 
 const Navbar = ({ selectedCampaign, onSelectCampaign }: NavbarProps) => {
-  const allOptions = ["Geonomics", "RPM", "Home Health Services", "MGs RPM", "Admin", "Others"];
+  const allOptions = [
+    "Geonomics",
+    "RPM",
+    "Home Health Services",
+    "MGs RPM",
+    "Training",
+    "Admin",
+    "Others"
+  ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -16,7 +23,6 @@ const Navbar = ({ selectedCampaign, onSelectCampaign }: NavbarProps) => {
     <nav className="sticky top-0 z-50">
       <div className="nav-gradient px-4 py-3 md:py-0">
         <div className="container mx-auto flex items-center justify-between h-14">
-          
           <div className="flex items-center gap-2">
             <div className="w-7 h-7 flex items-center justify-center text-primary-foreground">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
@@ -50,7 +56,7 @@ const Navbar = ({ selectedCampaign, onSelectCampaign }: NavbarProps) => {
             })}
           </div>
 
-          {/* Mobile Menu */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden w-10 h-10 flex items-center justify-center text-primary-foreground"
@@ -62,6 +68,7 @@ const Navbar = ({ selectedCampaign, onSelectCampaign }: NavbarProps) => {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden bg-black/80 backdrop-blur-xl border-t border-white/10 py-4 px-4">
             <div className="flex flex-col gap-2">
