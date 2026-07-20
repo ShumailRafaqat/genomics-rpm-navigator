@@ -1,12 +1,12 @@
-// src/data/portalData.ts
 export interface Resource {
   title: string;
   icon: string;
   url: string;
   description: string;
   isAudio?: boolean;
-  isVideo?: boolean;     // ← Naya field add kiya
+  isVideo?: boolean;
 }
+
 export interface PipelineData {
   name: string;
   pin: string;
@@ -14,10 +14,12 @@ export interface PipelineData {
   scheduleInfo?: string;
   resources: Resource[];
 }
+
 export interface CampaignData {
   name: string;
   pipelines: PipelineData[];
 }
+
 // ====================== ADMIN RESOURCES ======================
 export const adminResources = [
   {
@@ -33,6 +35,7 @@ export const adminResources = [
     description: "Patient Eligibility Check Portal"
   },
 ];
+
 // ====================== CAMPAIGNS ======================
 export const campaigns: CampaignData[] = [
   {
@@ -132,6 +135,7 @@ export const campaigns: CampaignData[] = [
     ],
   },
 ];
+
 // ====================== MGs RPM ======================
 export const mgsRpmPipeline: PipelineData = {
   name: "MGs RPM",
@@ -144,7 +148,6 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
     { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxIWlcdXdfS5GEooSeNaHCAXFmwmWuellYDqJ2yvG1wPQ", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
-    // Audio Cards
     {
       title: "Elizabeth-bah-RPM",
       icon: "file-text",
@@ -159,22 +162,47 @@ export const mgsRpmPipeline: PipelineData = {
       description: "Sample Recording",
       isAudio: true
     },
-   
-    // RPM Criteria PDF
     {
       title: "RPM Criteria",
       icon: "file-text",
       url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
       description: "RPM Criteria ",
     },
-     // Video (Screen pe play hoga)
     {
-       
       icon: "video",
       url: "/video6.mp4",
       description: "Sample Video",
       isVideo: true
-     
+    },
+  ],
+};
+
+// ====================== TRAINING ======================
+export const trainingPipeline: PipelineData = {
+  name: "Training",
+  pin: "1234",
+  scheduleInfo: "Training Videos & Resources",
+  resources: [
+    {
+      title: "Training Video 1",
+      icon: "video",
+      url: "/training1.mp4",
+      description: "First Training Video",
+      isVideo: true
+    },
+    {
+      title: "Training Video 2",
+      icon: "video",
+      url: "/training2.mp4",
+      description: "Second Training Video",
+      isVideo: true
+    },
+    {
+      title: "Training Video 3",
+      icon: "video",
+      url: "/training3.mp4",
+      description: "Third Training Video",
+      isVideo: true
     },
   ],
 };
