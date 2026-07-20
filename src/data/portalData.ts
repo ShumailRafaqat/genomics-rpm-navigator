@@ -185,9 +185,9 @@ export const trainingPipeline: PipelineData = {
   
     },
     {
-      title: "Call Handling Training",
+      title: "Home Health Script Training",
       icon: "video",
-      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784569945/WhatsApp_Video_2026-07-20_at_10.30.26_AM_mmc5uw.mp4",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584370/Home_health_script_training_1_pygfdk.mp4",
       isVideo: true
     },
     {
