@@ -86,7 +86,7 @@ const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
         src={url}
         controls
         controlsList="nodownload"
-        className="w-full h-[200px] rounded-xl"
+        className="w-full h-[220px] rounded-xl"
         playsInline
       />
     </div>
@@ -137,7 +137,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
               transition={{ delay: i * 0.07, type: "spring", stiffness: 200 }}
               whileHover={{ scale: 1.04, y: -6 }}
               whileTap={{ scale: 0.97 }}
-              className="relative rounded-2xl p-[1.5px] cursor-pointer group overflow-hidden h-full"
+              className="relative rounded-2xl p-[1.5px] cursor-pointer group overflow-hidden"
               style={{ background: `linear-gradient(135deg, ${style.glow}, transparent)` }}
             >
               <div className="relative h-full bg-card rounded-[15px] p-5 flex flex-col items-center text-center gap-3 overflow-hidden">
@@ -156,13 +156,13 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 </span>
 
                 {resource.description && (
-                  <span className="text-xs text-muted-foreground line-clamp-3 px-2 flex-1">
+                  <span className="text-xs text-muted-foreground line-clamp-2 px-2 flex-1">
                     {resource.description}
                   </span>
                 )}
 
-                {/* Consistent Action Area */}
-                <div className="mt-auto w-full pt-4">
+                {/* Action Area - Sab cards ke liye consistent */}
+                <div className="mt-auto w-full pt-2">
                   {isAudio ? (
                     <AudioPlayer url={resource.url} title={resource.title} />
                   ) : isVideo ? (
@@ -174,8 +174,8 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                       rel="noopener noreferrer"
                       className="block w-full"
                     >
-                      <button className="w-full bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3.5 rounded-xl text-sm font-medium">
-                        Open Script →
+                      <button className="w-full bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3 rounded-xl text-sm">
+                        Open {resource.title.includes("Script") ? "Script" : "Document"} →
                       </button>
                     </a>
                   )}
