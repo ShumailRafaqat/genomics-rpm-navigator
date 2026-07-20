@@ -5,62 +5,7 @@ export interface Resource {
   url: string;
   description: string;
   isAudio?: boolean;
-  isVideo?: boolean;
-}
-export interface PipelineData {
-  name: string;
-  pin: string;
-  ltNumber?: string;
-  scheduleInfo?: string;
-  resources: Resource[];
-}
-export interface CampaignData {
-  name: string;
-  pipelines: PipelineData[];
-}
-// ====================== ADMIN RESOURCES ======================
-export const adminResources = [
-  {
-    title: "Production Form",
-    icon: "file-text",
-    url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse",
-    description: "Daily Production Tracking Sheet"
-  },
-  {
-    title: "Eligibility Portal",
-    icon: "user-check",
-    url: "https://episodealert.com/login.aspx?ReturnUrl=%2fsecure%2fMyEligibility.aspx",
-    description: "Patient Eligibility Check Portal"
-  },
-];
-// ====================== CAMPAIGNS ======================
-export const campaigns: CampaignData[] = [
-  {
-    name: "Geonomics",
-    pipelines: [
-      {
-        name: "GM Pipeline",
-        pin: "6654",
-        ltNumber: "2394021344",
-        resources: [
-          { title: "CLM Immune Form", icon: "clipboard-list", url: "https://docs.google.com/forms/d/e/1FAIpQLSfZtnWdfDkkJAPCd8GDIRQ3ai62uEm7ZGvgE2kkTkofrhTdvQ/viewform", description: "Immune campaign intake form" },
-          { title: "Doctors Clinic", icon: "stethoscope", url: "https://mdl.gs.care/Account/Login", description: "Doctor's Clinic Portal" },
-          { title: "CLM Neuro Form", icon: "brain", url: "https://docs.google.com/forms/d/e/1FAIpQLSc-hoyMB_ag_jNQvViXr-TLs0hsgdO23OaRdT4x0kpyi2xvkw/viewform", description: "Neuro campaign intake form" },
-          { title: "CF Insurance Check", icon: "shield-check", url: "https://docs.google.com/forms/d/e/1FAIpQLScTwxR2kGg2EQGU**✅ YAR DONO FILES KA FINAL COMPLETE CODE**
-
----
-
-### **1. `src/data/portalData.ts`**
-
-```ts
-// src/data/portalData.ts
-export interface Resource {
-  title: string;
-  icon: string;
-  url: string;
-  description: string;
-  isAudio?: boolean;
-  isVideo?: boolean;
+  isVideo?: boolean;     // ← Naya field add kiya
 }
 export interface PipelineData {
   name: string;
@@ -214,20 +159,20 @@ export const mgsRpmPipeline: PipelineData = {
       description: "Sample Recording",
       isAudio: true
     },
-    // RPM Criteria
-    {
-      title: "RPM Criteria",
-      icon: "file-text",
-      url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
-      description: "RPM Criteria ",
-    },
-    // Video 6 (Third Row Mein)
+    // Video (Screen pe play hoga)
     {
       title: "Video 6",
       icon: "video",
       url: "/video6.mp4",
       description: "Sample Video",
       isVideo: true
+    },
+    // RPM Criteria PDF
+    {
+      title: "RPM Criteria",
+      icon: "file-text",
+      url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
+      description: "RPM Criteria ",
     },
   ],
 };
