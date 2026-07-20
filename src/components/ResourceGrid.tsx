@@ -85,7 +85,7 @@ const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
       <video
         src={url}
         controls
-        className="w-full h-[240px] rounded-xl"   // Bada size
+        className="w-full h-[220px] rounded-xl"   // ← Size bada kiya
         playsInline
       />
     </div>
