@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { campaigns, mgsRpmPipeline, trainingPipeline, CampaignData, PipelineData } from "@/data/portalData";
+import { campaigns, mgsRpmPipeline,  CampaignData, PipelineData } from "@/data/portalData";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PipelineSelector from "@/components/PipelineSelector";
