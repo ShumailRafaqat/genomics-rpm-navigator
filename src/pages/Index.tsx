@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { campaigns, mgsRpmPipeline,  CampaignData, PipelineData } from "@/data/portalData";
+import { campaigns, mgsRpmPipeline, trainingPipeline, CampaignData, PipelineData } from "@/data/portalData";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PipelineSelector from "@/components/PipelineSelector";
@@ -82,7 +82,7 @@ const Index = () => {
       if (homeHealthPipeline) setSelectedPipeline(homeHealthPipeline);
       setStep("resources");
     } else if (isTraining) {
-      setSelectedPipeline(trainingPipeline);
+      setSelectedPipeline(trainingPipeline);   // ← Ye ab sahi se kaam karega
       setStep("resources");
     } else if (!selectedCampaign) {
       setStep("admin");
@@ -165,7 +165,7 @@ const Index = () => {
               correctPin={
                 isMgsRpm ? "5567" :
                 isHomeHealth ? "1128" :
-                isTraining ? "6693" :           // ← Updated PIN
+                isTraining ? "6693" :
                 (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
