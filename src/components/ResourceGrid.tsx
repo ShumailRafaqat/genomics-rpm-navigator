@@ -2,18 +2,18 @@ import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import { PipelineData } from "@/data/portalData";
 import {
-  ClipboardList, 
-  Brain, 
-  ShieldCheck, 
-  Search, 
-  Briefcase, 
+  ClipboardList,
+  Brain,
+  ShieldCheck,
+  Search,
+  Briefcase,
   FileInput,
-  FileText, 
-  MessageSquare, 
-  Scroll, 
-  MapPin, 
-  Phone, 
-  Clock, 
+  FileText,
+  MessageSquare,
+  Scroll,
+  MapPin,
+  Phone,
+  Clock,
   ExternalLink,
   Stethoscope,
   Globe,
@@ -78,14 +78,16 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   );
 };
 
-// Video Player (Bigger Size)
+// Video Player (Download option disabled)
 const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
   return (
     <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
       <video
         src={url}
         controls
-        className="w-full h-[220px] rounded-xl"   // ← Size bada kiya
+        controlsList="nodownload nofullscreen"
+        disablePictureInPicture
+        className="w-full h-[220px] rounded-xl"
         playsInline
       />
     </div>
@@ -140,7 +142,6 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
               style={{ background: `linear-gradient(135deg, ${style.glow}, transparent)` }}
             >
               <div className="relative h-full bg-card rounded-[15px] p-5 flex flex-col items-center text-center gap-3 overflow-hidden">
-
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow`}>
                   {isAudio ? (
                     <Volume2 className="w-7 h-7 text-primary-foreground" />
