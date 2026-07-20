@@ -182,7 +182,7 @@ export const trainingPipeline: PipelineData = {
       title: "Home Health Initial Outreach Script",
       icon: "scroll",
       url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxbsrsCK4xT5-PX89xIF3dAdGPAS34gMpaYjVX490NsI?e=...", // OneDrive link (shortened)
-      description: "Home Health Initial Outreach Script",
+  
     },
     {
       title: "Training Video 1",
