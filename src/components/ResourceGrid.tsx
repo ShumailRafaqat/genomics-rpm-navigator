@@ -35,6 +35,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "map-pin": MapPin,
   "stethoscope": Stethoscope,
   "globe": Globe,
+  "video": Play,           // Video ke liye icon
 };
 
 const cardGradients = [
@@ -59,7 +60,6 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    
     if (isPlaying) {
       audioRef.current.pause();
     } else {
@@ -74,24 +74,47 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
         ref={audioRef} 
         src={url} 
         onEnded={() => setIsPlaying(false)}
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
       />
-      
       <button
         onClick={togglePlay}
         className="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3 rounded-xl text-sm"
       >
         {isPlaying ? (
-          <>
-            <Pause className="w-4 h-4" /> Pause Audio
-          </>
+          <><Pause className="w-4 h-4" /> Pause Audio</>
         ) : (
-          <>
-            <Play className="w-4 h-4" /> Play Audio
-          </>
+          <><Play className="w-4 h-4" /> Play Audio</>
         )}
       </button>
+    </div>
+  );
+};
+
+// Video Player Component (YouTube Style)
+const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
+      <video
+        ref={videoRef}
+        src={url}
+        controls
+        className="w-full rounded-xl"
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
+      />
     </div>
   );
 };
@@ -130,6 +153,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
           const IconComp = iconMap[resource.icon] || FileText;
           const style = cardGradients[i % cardGradients.length];
           const isAudio = (resource as any).isAudio === true;
+          const isVideo = (resource as any).isVideo === true;
 
           return (
             <motion.div
@@ -153,6 +177,8 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow`}>
                   {isAudio ? (
                     <Volume2 className="w-7 h-7 text-primary-foreground" />
+                  ) : isVideo ? (
+                    <Play className="w-7 h-7 text-primary-foreground" />
                   ) : (
                     <IconComp className="w-7 h-7 text-primary-foreground" />
                   )}
@@ -171,6 +197,8 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 {/* Audio Player */}
                 {isAudio ? (
                   <AudioPlayer url={resource.url} title={resource.title} />
+                ) : isVideo ? (
+                  <VideoPlayer url={resource.url} title={resource.title} />
                 ) : (
                   <a
                     href={resource.url}
