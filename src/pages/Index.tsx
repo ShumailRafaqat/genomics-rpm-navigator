@@ -28,7 +28,6 @@ const Index = () => {
       setStep("pin");
       return;
     }
-
     if (name === "MGs RPM") {
       setIsMgsRpm(true);
       setIsHomeHealth(false);
@@ -38,7 +37,6 @@ const Index = () => {
       setStep("pin");
       return;
     }
-
     if (name === "Training") {
       setIsMgsRpm(false);
       setIsHomeHealth(false);
@@ -48,7 +46,6 @@ const Index = () => {
       setStep("pin");
       return;
     }
-
     if (name === "Admin") {
       setIsMgsRpm(false);
       setIsHomeHealth(false);
@@ -168,7 +165,7 @@ const Index = () => {
               correctPin={
                 isMgsRpm ? "5567" :
                 isHomeHealth ? "1128" :
-                isTraining ? "1234" :
+                isTraining ? "6693" :           // ← Updated PIN
                 (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
