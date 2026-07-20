@@ -181,25 +181,25 @@ export const trainingPipeline: PipelineData = {
     {
       title: "Home Health Initial Outreach Script",
       icon: "scroll",
-      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxbsrsCK4xT5-PX89xIF3dAdGPAS34gMpaYjVX490NsI?e=...", // OneDrive link (shortened)
+      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQAxbsrsCK4xT5-PX89xIF3dAdGPAjS34gMpaYjvX490NsI", // OneDrive link (shortened)
   
     },
     {
       title: "Training Video 1",
       icon: "video",
-      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
+      url: "",
       isVideo: true
     },
     {
       title: "Training Video 2",
       icon: "video",
-      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
+      url: "",
       isVideo: true
     },
     {
       title: "Training Video 3",
       icon: "video",
-      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
+      url: "",
       isVideo: true
     },
   ],
