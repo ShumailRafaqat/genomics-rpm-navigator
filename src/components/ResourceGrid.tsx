@@ -35,7 +35,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   "map-pin": MapPin,
   "stethoscope": Stethoscope,
   "globe": Globe,
-  "video": Play,           // Video ke liye icon
+  "video": Play,
 };
 
 const cardGradients = [
@@ -53,67 +53,40 @@ interface ResourceGridProps {
   onBack: () => void;
 }
 
-// Audio Player Component
+// Audio Player
 const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
+    if (isPlaying) audioRef.current.pause();
+    else audioRef.current.play();
     setIsPlaying(!isPlaying);
   };
 
   return (
     <div className="w-full mt-3">
-      <audio 
-        ref={audioRef} 
-        src={url} 
-        onEnded={() => setIsPlaying(false)}
-      />
+      <audio ref={audioRef} src={url} onEnded={() => setIsPlaying(false)} />
       <button
         onClick={togglePlay}
         className="w-full flex items-center justify-center gap-2 bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3 rounded-xl text-sm"
       >
-        {isPlaying ? (
-          <><Pause className="w-4 h-4" /> Pause Audio</>
-        ) : (
-          <><Play className="w-4 h-4" /> Play Audio</>
-        )}
+        {isPlaying ? <><Pause className="w-4 h-4" /> Pause Audio</> : <><Play className="w-4 h-4" /> Play Audio</>}
       </button>
     </div>
   );
 };
 
-// Video Player Component (YouTube Style)
+// Video Player (Bigger & Cleaner)
 const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (isPlaying) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
-  };
-
   return (
-    <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
+    <div className="w-full mt-4 rounded-2xl overflow-hidden bg-black shadow-inner">
       <video
-        ref={videoRef}
         src={url}
         controls
-        className="w-full rounded-xl"
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-        onEnded={() => setIsPlaying(false)}
+        className="w-full aspect-video rounded-2xl"
+        poster="" // agar thumbnail chahiye to yahan url daal sakte ho
       />
     </div>
   );
@@ -168,12 +141,6 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
             >
               <div className="relative h-full bg-card rounded-[15px] p-5 flex flex-col items-center text-center gap-3 overflow-hidden">
 
-                {/* Background glow */}
-                <div
-                  className="absolute -top-8 -right-8 w-24 h-24 rounded-full opacity-10 group-hover:opacity-25 blur-2xl transition-opacity duration-300"
-                  style={{ background: style.glow }}
-                />
-
                 <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${style.gradient} flex items-center justify-center shadow-md group-hover:shadow-lg transition-shadow`}>
                   {isAudio ? (
                     <Volume2 className="w-7 h-7 text-primary-foreground" />
@@ -185,7 +152,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 </div>
 
                 <span className="font-heading font-semibold text-foreground text-sm leading-tight">
-                  {resource.title}
+                  {isVideo ? "Sample Video" : resource.title}
                 </span>
 
                 {resource.description && (
@@ -194,7 +161,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                   </span>
                 )}
 
-                {/* Audio Player */}
+                {/* Players */}
                 {isAudio ? (
                   <AudioPlayer url={resource.url} title={resource.title} />
                 ) : isVideo ? (
