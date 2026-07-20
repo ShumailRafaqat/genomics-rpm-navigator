@@ -188,21 +188,18 @@ export const trainingPipeline: PipelineData = {
       title: "Training Video 1",
       icon: "video",
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
-      description: "First Training Video",
       isVideo: true
     },
     {
       title: "Training Video 2",
       icon: "video",
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
-      description: "Second Training Video",
       isVideo: true
     },
     {
       title: "Training Video 3",
       icon: "video",
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
-      description: "Third Training Video",
       isVideo: true
     },
   ],
