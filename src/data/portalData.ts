@@ -5,6 +5,7 @@ export interface Resource {
   url: string;
   description: string;
   isAudio?: boolean;
+  isVideo?: boolean;     // ← Naya field add kiya
 }
 export interface PipelineData {
   name: string;
@@ -158,12 +159,13 @@ export const mgsRpmPipeline: PipelineData = {
       description: "Sample Recording",
       isAudio: true
     },
-    // Video Added
+    // Video (Screen pe play hoga)
     {
       title: "Video 6",
       icon: "video",
       url: "/video6.mp4",
-      description: "Sample Video"
+      description: "Sample Video",
+      isVideo: true
     },
     // RPM Criteria PDF
     {
