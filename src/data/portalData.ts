@@ -191,7 +191,7 @@ export const trainingPipeline: PipelineData = {
       isVideo: true
     },
     {
-      title: "Training Video 2",
+      title: "Lead Management & Status Updates Training ",
       icon: "video",
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784572386/WhatsApp_Video_2026-07-20_at_11.02.25_AM_dyaoul.mp4",
       isVideo: true
