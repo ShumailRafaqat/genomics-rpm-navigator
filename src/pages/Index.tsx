@@ -1,7 +1,6 @@
-// src/pages/Index.tsx
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { campaigns, mgsRpmPipeline, CampaignData, PipelineData } from "@/data/portalData";
+import { campaigns, mgsRpmPipeline, trainingPipeline, CampaignData, PipelineData } from "@/data/portalData";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import PipelineSelector from "@/components/PipelineSelector";
@@ -17,44 +16,55 @@ const Index = () => {
   const [selectedPipeline, setSelectedPipeline] = useState<PipelineData | null>(null);
   const [isMgsRpm, setIsMgsRpm] = useState(false);
   const [isHomeHealth, setIsHomeHealth] = useState(false);
+  const [isTraining, setIsTraining] = useState(false);
 
   const handleSelectCampaign = (name: string) => {
-    // Home Health Services - Direct PIN with 1128
     if (name === "Home Health Services") {
       setIsMgsRpm(false);
       setIsHomeHealth(true);
+      setIsTraining(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
 
-    // MGs RPM - Direct PIN
     if (name === "MGs RPM") {
       setIsMgsRpm(true);
       setIsHomeHealth(false);
+      setIsTraining(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
 
-    // Admin
+    if (name === "Training") {
+      setIsMgsRpm(false);
+      setIsHomeHealth(false);
+      setIsTraining(true);
+      setSelectedCampaign(null);
+      setSelectedPipeline(null);
+      setStep("pin");
+      return;
+    }
+
     if (name === "Admin") {
       setIsMgsRpm(false);
       setIsHomeHealth(false);
+      setIsTraining(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
 
-    // Normal Campaigns
     const campaign = campaigns.find((c) => c.name === name);
     if (!campaign) return;
 
     setIsMgsRpm(false);
     setIsHomeHealth(false);
+    setIsTraining(false);
     setSelectedCampaign(campaign);
     setSelectedPipeline(null);
     setStep("pipeline");
@@ -69,19 +79,15 @@ const Index = () => {
     if (isMgsRpm) {
       setSelectedPipeline(mgsRpmPipeline);
       setStep("resources");
-    } 
-    else if (isHomeHealth) {
-      // Home Health Services Pipeline
+    } else if (isHomeHealth) {
       const homeHealthCampaign = campaigns.find(c => c.name === "Home Health Services");
       const homeHealthPipeline = homeHealthCampaign?.pipelines[0] || null;
-      
-      if (homeHealthPipeline) {
-        setSelectedPipeline(homeHealthPipeline);
-      }
+      if (homeHealthPipeline) setSelectedPipeline(homeHealthPipeline);
       setStep("resources");
-    } 
-    else if (!selectedCampaign) {
-      // Admin
+    } else if (isTraining) {
+      setSelectedPipeline(trainingPipeline);
+      setStep("resources");
+    } else if (!selectedCampaign) {
       setStep("admin");
     } else {
       setStep("resources");
@@ -90,10 +96,11 @@ const Index = () => {
 
   const handleBackToPipelines = () => {
     setSelectedPipeline(null);
-    if (isMgsRpm || isHomeHealth) {
+    if (isMgsRpm || isHomeHealth || isTraining) {
       setStep("home");
       setIsMgsRpm(false);
       setIsHomeHealth(false);
+      setIsTraining(false);
     } else {
       setStep("pipeline");
     }
@@ -104,6 +111,7 @@ const Index = () => {
     setSelectedPipeline(null);
     setIsMgsRpm(false);
     setIsHomeHealth(false);
+    setIsTraining(false);
     setStep("home");
   };
 
@@ -117,22 +125,20 @@ const Index = () => {
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar
         selectedCampaign={
-          isMgsRpm
-            ? "MGs RPM"
-            : isHomeHealth
-              ? "Home Health Services"
-              : selectedCampaign?.name || null
+          isMgsRpm ? "MGs RPM" :
+          isHomeHealth ? "Home Health Services" :
+          isTraining ? "Training" :
+          selectedCampaign?.name || null
         }
         onSelectCampaign={handleSelectCampaign}
       />
 
       <HeroSection
         selectedCampaign={
-          isMgsRpm
-            ? "MGs RPM"
-            : isHomeHealth
-              ? "Home Health Services"
-              : (selectedCampaign?.name || (step === "admin" ? "Admin Portal" : null))
+          isMgsRpm ? "MGs RPM" :
+          isHomeHealth ? "Home Health Services" :
+          isTraining ? "Training" :
+          (selectedCampaign?.name || (step === "admin" ? "Admin Portal" : null))
         }
       />
 
@@ -160,14 +166,13 @@ const Index = () => {
           <motion.div key="pin" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <PinEntry
               correctPin={
-                isMgsRpm 
-                  ? "5567" 
-                  : isHomeHealth 
-                    ? "1128" 
-                    : (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
+                isMgsRpm ? "5567" :
+                isHomeHealth ? "1128" :
+                isTraining ? "1234" :
+                (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
-              onBack={isMgsRpm || isHomeHealth || !selectedCampaign ? handleBackHome : handleBackToPipelines}
+              onBack={isMgsRpm || isHomeHealth || isTraining || !selectedCampaign ? handleBackHome : handleBackToPipelines}
             />
           </motion.div>
         )}
@@ -189,11 +194,11 @@ const Index = () => {
         {step !== "home" && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="fixed bottom-6 right-6 z-50">
             <button
-              onClick={step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth ? handleBackHome : handleBackToPipelines}
+              onClick={step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth || isTraining ? handleBackHome : handleBackToPipelines}
               className="group flex items-center gap-2 px-5 py-2.5 bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-xl shadow-md hover:shadow-lg active:scale-[0.96] transition-all duration-300"
             >
               <span className="group-hover:-translate-x-0.5 transition-transform duration-200 text-base">←</span>
-              {step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth ? "Back to Home" : "Back"}
+              {step === "admin" || step === "pipeline" || isMgsRpm || isHomeHealth || isTraining ? "Back to Home" : "Back"}
             </button>
           </motion.div>
         )}
