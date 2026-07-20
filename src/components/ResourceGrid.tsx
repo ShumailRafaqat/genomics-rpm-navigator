@@ -78,15 +78,15 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   );
 };
 
-// Video Player (Bigger & Cleaner)
+// Video Player (Bigger Size)
 const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
   return (
-    <div className="w-full mt-4 rounded-2xl overflow-hidden bg-black shadow-inner">
+    <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
       <video
         src={url}
         controls
-        className="w-full aspect-video rounded-2xl"
-        poster="" // agar thumbnail chahiye to yahan url daal sakte ho
+        className="w-full h-[240px] rounded-xl"   // Bada size
+        playsInline
       />
     </div>
   );
@@ -152,7 +152,7 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 </div>
 
                 <span className="font-heading font-semibold text-foreground text-sm leading-tight">
-                  {isVideo ? "Sample Video" : resource.title}
+                  {resource.title}
                 </span>
 
                 {resource.description && (
@@ -161,7 +161,6 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                   </span>
                 )}
 
-                {/* Players */}
                 {isAudio ? (
                   <AudioPlayer url={resource.url} title={resource.title} />
                 ) : isVideo ? (
