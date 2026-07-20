@@ -168,7 +168,7 @@ const Index = () => {
               correctPin={
                 isMgsRpm ? "5567" :
                 isHomeHealth ? "1128" :
-                isTraining ? "1234" :
+                isTraining ? "6693" :
                 (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
               }
               onSuccess={handlePinSuccess}
