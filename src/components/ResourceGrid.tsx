@@ -51,7 +51,7 @@ const cardGradients = [
 interface ResourceGridProps {
   pipeline: PipelineData;
   onBack: () => void;
-};
+}
 
 // Audio Player
 const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
@@ -78,7 +78,7 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   );
 };
 
-// Video Player (Sirf Download disabled)
+// Video Player
 const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
   return (
     <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
@@ -156,25 +156,30 @@ const ResourceGrid = ({ pipeline, onBack }: ResourceGridProps) => {
                 </span>
 
                 {resource.description && (
-                  <span className="text-xs text-muted-foreground line-clamp-2 px-2">
+                  <span className="text-xs text-muted-foreground line-clamp-2 px-2 flex-1">
                     {resource.description}
                   </span>
                 )}
 
-                {isAudio ? (
-                  <AudioPlayer url={resource.url} title={resource.title} />
-                ) : isVideo ? (
-                  <VideoPlayer url={resource.url} title={resource.title} />
-                ) : (
-                  <a
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-auto"
-                  >
-                    <ExternalLink className="w-3.5 h-3.5 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
-                )}
+                {/* Action Area - Sab cards ke liye consistent */}
+                <div className="mt-auto w-full pt-2">
+                  {isAudio ? (
+                    <AudioPlayer url={resource.url} title={resource.title} />
+                  ) : isVideo ? (
+                    <VideoPlayer url={resource.url} title={resource.title} />
+                  ) : (
+                    <a
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <button className="w-full bg-primary/10 hover:bg-primary/20 active:bg-primary/30 transition-all text-primary font-medium py-3 rounded-xl text-sm">
+                        Open {resource.title.includes("Script") ? "Script" : "Document"} →
+                      </button>
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           );
