@@ -168,39 +168,40 @@ export const mgsRpmPipeline: PipelineData = {
       url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
       description: "RPM Criteria ",
     },
-    {
-      icon: "video",
-      url: "/video6.mp4",
-      description: "Sample Video",
-      isVideo: true
-    },
+  
   ],
 };
 
 // ====================== TRAINING ======================
 export const trainingPipeline: PipelineData = {
   name: "Training",
-  pin: "1234",
+  pin: "6693",                    // ← Updated PIN
   scheduleInfo: "Training Videos & Resources",
   resources: [
     {
+      title: "Home Health Initial Outreach Script",
+      icon: "scroll",
+      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQCxbsrsCK4xT5-PX89xIF3dAdGPAS34gMpaYjVX490NsI?e=...", // OneDrive link (shortened)
+      description: "Home Health Initial Outreach Script",
+    },
+    {
       title: "Training Video 1",
       icon: "video",
-      url: "/training1.mp4",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
       description: "First Training Video",
       isVideo: true
     },
     {
       title: "Training Video 2",
       icon: "video",
-      url: "/training2.mp4",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
       description: "Second Training Video",
       isVideo: true
     },
     {
       title: "Training Video 3",
       icon: "video",
-      url: "/training3.mp4",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784563856/video6_fgi913.mp4",
       description: "Third Training Video",
       isVideo: true
     },
