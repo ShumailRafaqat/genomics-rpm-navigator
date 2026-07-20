@@ -51,7 +51,7 @@ const cardGradients = [
 interface ResourceGridProps {
   pipeline: PipelineData;
   onBack: () => void;
-}
+};
 
 // Audio Player
 const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
@@ -78,15 +78,14 @@ const AudioPlayer = ({ url, title }: { url: string; title: string }) => {
   );
 };
 
-// Video Player (Download option disabled)
+// Video Player (Sirf Download disabled)
 const VideoPlayer = ({ url, title }: { url: string; title: string }) => {
   return (
     <div className="w-full mt-3 rounded-xl overflow-hidden bg-black">
       <video
         src={url}
         controls
-        controlsList="nodownload nofullscreen"
-        disablePictureInPicture
+        controlsList="nodownload"
         className="w-full h-[220px] rounded-xl"
         playsInline
       />
