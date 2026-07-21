@@ -197,7 +197,7 @@ export const trainingRpmPipeline: PipelineData = {
       {
       title: "RPM Script Training",
       icon: "video",
-      url: "https://drive.google.com/uc?export=download&id=1NrodHq133jbjuNYtDOd9JmFW6UNIycho",
+      url: "https://drive.google.com/uc?export=view&id=1NrodHq133jbjuNYtDOd9JmFW6UNIycho",
       isVideo: true
     },
       {
