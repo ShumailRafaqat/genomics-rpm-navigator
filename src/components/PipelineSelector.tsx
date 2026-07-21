@@ -5,7 +5,8 @@ import { GitBranch, ArrowLeft } from "lucide-react";
 interface PipelineSelectorProps {
   pipelines: PipelineData[];
   onSelect: (pipeline: PipelineData) => void;
-  onBack?: () => void;        // ← New optional prop
+  onBack?: () => void;
+  title?: string;           // ← Custom title ke liye
 }
 
 const pipelineStyles = [
@@ -17,7 +18,8 @@ const pipelineStyles = [
 const PipelineSelector = ({ 
   pipelines, 
   onSelect, 
-  onBack 
+  onBack,
+  title = "Select Pipeline" 
 }: PipelineSelectorProps) => {
   return (
     <div className="container mx-auto px-4 py-14 relative">
@@ -44,7 +46,7 @@ const PipelineSelector = ({
         animate={{ opacity: 1, y: 0 }}
         className="text-3xl font-heading font-bold text-center mb-10 text-foreground"
       >
-        Select Pipeline
+        {title}
       </motion.h2>
 
       <div className="flex flex-wrap justify-center gap-8">
