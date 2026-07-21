@@ -157,7 +157,7 @@ export const mgsRpmPipeline: PipelineData = {
 // ====================== TRAINING ======================
 export const trainingPipeline: PipelineData = {
   name: "Training",
-  pin: "6693",
+  pin: "",
   scheduleInfo: "Training Videos & Resources",
   resources: [
     {
