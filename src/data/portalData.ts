@@ -240,12 +240,7 @@ export const trainingHomeHealthPipeline: PipelineData = {
       url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1",
       description: "LNS Request Form"
     },
-    {
-      title: "Home Health Script",
-      icon: "scroll",
-      url: "https://drive.google.com/file/d/1BaaIDX4hdKiwGWgntwomUFcKqCO9RBQn/view?usp=sharing",
-      description: "Home Health Services Call Script"
-    },
+  
     {
       title: "Qualification Criteria",
       icon: "file-text",
@@ -258,11 +253,6 @@ export const trainingHomeHealthPipeline: PipelineData = {
       url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing",
       description: "California Zip Codes Coverage"
     },
-    {
-      title: "Production Form",
-      icon: "file-text",
-      url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse",
-      description: "Daily Production Tracking Sheet"
-    },
+   
   ],
 };
