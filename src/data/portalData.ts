@@ -192,6 +192,8 @@ export const trainingRpmPipeline: PipelineData = {
   pin: "2346",
   scheduleInfo: "RPM Training",
   resources: [
+      { title: "RPM Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "RPM Training Script" },
+    
       {
       title: "RPM Script Training",
       icon: "video",
@@ -204,8 +206,7 @@ export const trainingRpmPipeline: PipelineData = {
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584817/Dialing_Pattern_odrqir.mp4",
       isVideo: true
     },
-    { title: "RPM Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "RPM Training Script" },
-    
+  
  
   ],
 };
