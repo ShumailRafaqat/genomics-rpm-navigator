@@ -206,6 +206,12 @@ export const trainingRpmPipeline: PipelineData = {
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584817/Dialing_Pattern_odrqir.mp4",
       isVideo: true
     },
+  {
+      title: "LNS",
+      icon: "file-text",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1",
+      description: "LNS Request Form"
+    },
   
  
   ],
@@ -241,18 +247,7 @@ export const trainingHomeHealthPipeline: PipelineData = {
       description: "LNS Request Form"
     },
   
-    {
-      title: "Qualification Criteria",
-      icon: "file-text",
-      url: "https://drive.google.com/file/d/1hspPqBLiezwY5dQPtEUhm6FhhOhnFl1w/view?usp=sharing",
-      description: "Home Health Qualification Criteria"
-    },
-    {
-      title: "CA Zip Codes Coverage",
-      icon: "map-pin",
-      url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing",
-      description: "California Zip Codes Coverage"
-    },
+  
    
   ],
 };
