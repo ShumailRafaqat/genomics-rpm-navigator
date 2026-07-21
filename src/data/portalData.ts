@@ -190,14 +190,23 @@ export const trainingPipeline: PipelineData = {
 export const trainingRpmPipeline: PipelineData = {
   name: "RPM",                    // ← Short name
   pin: "2346",
-  ltNumber: "989-250-5964",
-  scheduleInfo: "RPM Training Session",
+  scheduleInfo: "RPM Training",
   resources: [
-    { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
+      {
+      title: "RPM Script Training",
+      icon: "video",
+      url: "https://drive.google.com/file/d/1NrodHq133jbjuNYtDOd9JmFW6UNIycho/view?usp=sharing",
+      isVideo: true
+    },
+      {
+      title: "Dialing Pattern",
+      icon: "video",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584817/Dialing_Pattern_odrqir.mp4",
+      isVideo: true
+    },
     { title: "RPM Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "RPM Training Script" },
-    { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
-    { title: "Production Form", icon: "file-text", url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", description: "Daily Production Tracking Sheet" },
-    { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
+    
+ 
   ],
 };
 
@@ -206,6 +215,24 @@ export const trainingHomeHealthPipeline: PipelineData = {
   pin: "5698",
   scheduleInfo: "Home Health Training Session",
   resources: [
+
+     {
+      title: "Home Health Initial Outreach Script",
+      icon: "scroll",
+      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQAxbsrsCK4xT5-PX89xIF3dAdGPAjS34gMpaYjvX490NsI",
+    },
+    {
+      title: "Home Health Script Training",
+      icon: "video",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584370/Home_health_script_training_1_pygfdk.mp4",
+      isVideo: true
+    },
+    {
+      title: "Dialing Pattern",
+      icon: "video",
+      url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584817/Dialing_Pattern_odrqir.mp4",
+      isVideo: true
+    },
     {
       title: "LNS",
       icon: "file-text",
