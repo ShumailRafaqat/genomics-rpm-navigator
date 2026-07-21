@@ -95,8 +95,7 @@ const Index = () => {
       if (homeHealthPipeline) setSelectedPipeline(homeHealthPipeline);
       setStep("resources");
     } else if (isTraining) {
-      // Training ke liye 2 new campaigns
-      setStep("pipeline"); // Pipeline selector show hoga jisme 2 options honge
+      setStep("pipeline");
     } else if (isTrainingRpm) {
       setSelectedPipeline(trainingRpmPipeline);
       setStep("resources");
@@ -120,7 +119,7 @@ const Index = () => {
       setIsTrainingRpm(false);
       setIsTrainingHomeHealth(false);
     } else if (isTraining) {
-      setStep("pin"); // Training main screen pe wapas
+      setStep("pin");
     } else {
       setStep("pipeline");
     }
@@ -177,7 +176,7 @@ const Index = () => {
           </motion.div>
         )}
 
-        {/* Training ke liye special pipeline selector */}
+        {/* Training Special Pipeline Selector */}
         {step === "pipeline" && isTraining && (
           <motion.div key="training-pipelines" variants={pageVariants} initial="initial" animate="animate" exit="exit">
             <PipelineSelector
@@ -197,6 +196,7 @@ const Index = () => {
                 setStep("pin");
               }}
               onBack={handleBackHome}
+              title="Select Campaign"   // ← Yeh change kiya hai
             />
           </motion.div>
         )}
