@@ -30,7 +30,7 @@ const Index = () => {
       setIsTrainingHomeHealth(false);
       setSelectedCampaign(null);
       setSelectedPipeline(null);
-      setStep("pin");
+      setStep("pipeline");
       return;
     }
     if (name === "MGs RPM") {
