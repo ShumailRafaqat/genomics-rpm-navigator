@@ -192,7 +192,6 @@ const Index = () => {
             correctPin={
               isTrainingRpm ? "2346" :
               isTrainingHomeHealth ? "5698" :
-              isTraining ? "6693" :
               isMgsRpm ? "5567" :
               isHomeHealth ? "1128" :
               (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
