@@ -188,19 +188,21 @@ export const trainingPipeline: PipelineData = {
 
 // NEW TRAINING CAMPAIGNS
 export const trainingRpmPipeline: PipelineData = {
-  name: "RPM ",
+  name: "RPM Training",
   pin: "2346",
   ltNumber: "989-250-5964",
   scheduleInfo: "RPM Training Session",
   resources: [
-
+    { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
     { title: "RPM Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "RPM Training Script" },
-  
+    { title: "Sales CRM", icon: "briefcase", url: "https://biznexuss.com/", description: "Sales management portal" },
+    { title: "Production Form", icon: "file-text", url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", description: "Daily Production Tracking Sheet" },
+    { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
   ],
 };
 
 export const trainingHomeHealthPipeline: PipelineData = {
-  name: "Home Health",
+  name: "Home Health Services Training",
   pin: "5698",
   scheduleInfo: "Home Health Training Session - California Timing",
   resources: [
