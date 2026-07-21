@@ -186,9 +186,9 @@ export const trainingPipeline: PipelineData = {
   ],
 };
 
-// NEW TRAINING CAMPAIGNS
+// NEW TRAINING CAMPAIGNS (Short Names)
 export const trainingRpmPipeline: PipelineData = {
-  name: "RPM Training",
+  name: "RPM",                    // ← Short name
   pin: "2346",
   ltNumber: "989-250-5964",
   scheduleInfo: "RPM Training Session",
@@ -202,9 +202,9 @@ export const trainingRpmPipeline: PipelineData = {
 };
 
 export const trainingHomeHealthPipeline: PipelineData = {
-  name: "Home Health Services Training",
+  name: "Home Health",            // ← Short name
   pin: "5698",
-  scheduleInfo: "Home Health Training Session - California Timing",
+  scheduleInfo: "Home Health Training Session",
   resources: [
     {
       title: "LNS",
