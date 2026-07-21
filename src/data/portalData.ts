@@ -148,41 +148,22 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
     { title: "Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
-    {
-      title: "Elizabeth-bah-RPM",
-      icon: "file-text",
-      url: "/opening-script.mp3",
-      description: "Sample Recording",
-      isAudio: true
-    },
-    {
-      title: "Jane-Fishkoff-RPM",
-      icon: "file-text",
-      url: "/benefits-pitch.mp3",
-      description: "Sample Recording",
-      isAudio: true
-    },
-    {
-      title: "RPM Criteria",
-      icon: "file-text",
-      url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing",
-      description: "RPM Criteria ",
-    },
-  
+    { title: "Elizabeth-bah-RPM", icon: "file-text", url: "/opening-script.mp3", description: "Sample Recording", isAudio: true },
+    { title: "Jane-Fishkoff-RPM", icon: "file-text", url: "/benefits-pitch.mp3", description: "Sample Recording", isAudio: true },
+    { title: "RPM Criteria", icon: "file-text", url: "https://drive.google.com/file/d/1xuLcc9KI6r6Lz6W6lEMHgLbSQ2Jly9HA/view?usp=sharing", description: "RPM Criteria" },
   ],
 };
 
 // ====================== TRAINING ======================
 export const trainingPipeline: PipelineData = {
   name: "Training",
-  pin: "6693",                    // ← Updated PIN
+  pin: "6693",
   scheduleInfo: "Training Videos & Resources",
   resources: [
     {
       title: "Home Health Initial Outreach Script",
       icon: "scroll",
-      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQAxbsrsCK4xT5-PX89xIF3dAdGPAjS34gMpaYjvX490NsI", // OneDrive link (shortened)
-  
+      url: "https://1drv.ms/b/c/eef37504b43a5cea/IQAxbsrsCK4xT5-PX89xIF3dAdGPAjS34gMpaYjvX490NsI",
     },
     {
       title: "Home Health Script Training",
@@ -191,16 +172,67 @@ export const trainingPipeline: PipelineData = {
       isVideo: true
     },
     {
-      title: "Dialing Pattern ",
+      title: "Dialing Pattern",
       icon: "video",
       url: "https://res.cloudinary.com/dyxql7jwr/video/upload/v1784584817/Dialing_Pattern_odrqir.mp4",
       isVideo: true
     },
     {
-      title: "Training Video ",
+      title: "Training Video",
       icon: "video",
       url: "",
       isVideo: true
+    },
+  ],
+};
+
+// NEW TRAINING CAMPAIGNS
+export const trainingRpmPipeline: PipelineData = {
+  name: "RPM ",
+  pin: "2346",
+  ltNumber: "989-250-5964",
+  scheduleInfo: "RPM Training Session",
+  resources: [
+
+    { title: "RPM Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "RPM Training Script" },
+  
+  ],
+};
+
+export const trainingHomeHealthPipeline: PipelineData = {
+  name: "Home Health",
+  pin: "5698",
+  scheduleInfo: "Home Health Training Session - California Timing",
+  resources: [
+    {
+      title: "LNS",
+      icon: "file-text",
+      url: "https://docs.google.com/forms/d/e/1FAIpQLSfalVIgNlnMGgkkYXVY4nH4-DF_vyVy-xWH9C4r-bSQ5uYY9A/viewform?pli=1&pli=1",
+      description: "LNS Request Form"
+    },
+    {
+      title: "Home Health Script",
+      icon: "scroll",
+      url: "https://drive.google.com/file/d/1BaaIDX4hdKiwGWgntwomUFcKqCO9RBQn/view?usp=sharing",
+      description: "Home Health Services Call Script"
+    },
+    {
+      title: "Qualification Criteria",
+      icon: "file-text",
+      url: "https://drive.google.com/file/d/1hspPqBLiezwY5dQPtEUhm6FhhOhnFl1w/view?usp=sharing",
+      description: "Home Health Qualification Criteria"
+    },
+    {
+      title: "CA Zip Codes Coverage",
+      icon: "map-pin",
+      url: "https://docs.google.com/spreadsheets/d/1dnOqKnw9xsiVfJgwhXYMuIygp0_9BYc0wKR0QLAJy_A/edit?usp=sharing",
+      description: "California Zip Codes Coverage"
+    },
+    {
+      title: "Production Form",
+      icon: "file-text",
+      url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse",
+      description: "Daily Production Tracking Sheet"
     },
   ],
 };
