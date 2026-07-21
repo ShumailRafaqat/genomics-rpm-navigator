@@ -12,6 +12,7 @@ type Step = "home" | "pipeline" | "pin" | "resources" | "admin";
 
 const Index = () => {
   const [step, setStep] = useState<Step>("home");
+  const [selectedCampaign, setSelectedCampaign] = useState<CampaignData | null>(null);
   const [selectedPipeline, setSelectedPipeline] = useState<PipelineData | null>(null);
 
   const [isMgsRpm, setIsMgsRpm] = useState(false);
@@ -27,36 +28,54 @@ const Index = () => {
       setIsHomeHealth(false);
       setIsTrainingRpm(false);
       setIsTrainingHomeHealth(false);
+      setSelectedCampaign(null);
       setSelectedPipeline(null);
       setStep("pin");
       return;
     }
     if (name === "MGs RPM") {
       setIsMgsRpm(true);
-      setIsTraining(false);
       setIsHomeHealth(false);
+      setIsTraining(false);
       setIsTrainingRpm(false);
       setIsTrainingHomeHealth(false);
+      setSelectedCampaign(null);
+      setSelectedPipeline(null);
       setStep("pin");
       return;
     }
     if (name === "Home Health Services") {
       setIsHomeHealth(true);
-      setIsTraining(false);
       setIsMgsRpm(false);
+      setIsTraining(false);
       setIsTrainingRpm(false);
       setIsTrainingHomeHealth(false);
+      setSelectedCampaign(null);
+      setSelectedPipeline(null);
       setStep("pin");
       return;
     }
-    // Other campaigns
-    const campaign = campaigns.find((c) => c.name === name);
-    if (campaign) {
-      setIsTraining(false);
+    if (name === "Admin") {
       setIsMgsRpm(false);
       setIsHomeHealth(false);
+      setIsTraining(false);
       setIsTrainingRpm(false);
       setIsTrainingHomeHealth(false);
+      setSelectedCampaign(null);
+      setSelectedPipeline(null);
+      setStep("pin");
+      return;
+    }
+
+    const campaign = campaigns.find((c) => c.name === name);
+    if (campaign) {
+      setIsMgsRpm(false);
+      setIsHomeHealth(false);
+      setIsTraining(false);
+      setIsTrainingRpm(false);
+      setIsTrainingHomeHealth(false);
+      setSelectedCampaign(campaign);
+      setSelectedPipeline(null);
       setStep("pipeline");
     }
   };
@@ -75,94 +94,116 @@ const Index = () => {
       setStep("resources");
     } else if (isHomeHealth) {
       const homeHealthCampaign = campaigns.find(c => c.name === "Home Health Services");
-      setSelectedPipeline(homeHealthCampaign?.pipelines[0] || null);
+      const homeHealthPipeline = homeHealthCampaign?.pipelines[0] || null;
+      if (homeHealthPipeline) setSelectedPipeline(homeHealthPipeline);
       setStep("resources");
+    } else if (!selectedCampaign) {
+      setStep("admin");
     } else {
       setStep("resources");
     }
   };
 
+  const handleBackToPipelines = () => {
+    setSelectedPipeline(null);
+    if (isMgsRpm || isHomeHealth || isTrainingRpm || isTrainingHomeHealth) {
+      setStep("home");
+    } else if (isTraining) {
+      setStep("pin");
+    } else {
+      setStep("pipeline");
+    }
+  };
+
   const handleBackHome = () => {
-    setStep("home");
+    setSelectedCampaign(null);
     setSelectedPipeline(null);
     setIsMgsRpm(false);
     setIsHomeHealth(false);
     setIsTraining(false);
     setIsTrainingRpm(false);
     setIsTrainingHomeHealth(false);
+    setStep("home");
   };
 
   return (
     <div className="min-h-screen bg-background overflow-hidden">
       <Navbar
         selectedCampaign={
+          isMgsRpm ? "MGs RPM" :
+          isHomeHealth ? "Home Health Services" :
+          isTraining ? "Training" :
           isTrainingRpm ? "RPM Training" :
           isTrainingHomeHealth ? "Home Health Training" :
-          isTraining ? "Training" :
-          isMgsRpm ? "MGs RPM" :
-          isHomeHealth ? "Home Health Services" : null
+          selectedCampaign?.name || null
         }
         onSelectCampaign={handleSelectCampaign}
       />
       <HeroSection
         selectedCampaign={
+          isMgsRpm ? "MGs RPM" :
+          isHomeHealth ? "Home Health Services" :
+          isTraining ? "Training" :
           isTrainingRpm ? "RPM Training" :
           isTrainingHomeHealth ? "Home Health Training" :
-          isTraining ? "Training" : null
+          (selectedCampaign?.name || null)
         }
       />
 
       <AnimatePresence mode="wait">
-        {/* Training - Select Campaign */}
+        {step === "home" && (
+          <motion.div key="home" className="container mx-auto px-4 py-24 text-center">
+            <h2 className="text-4xl font-semibold text-foreground mb-6">Welcome to CF Resource Portal</h2>
+          </motion.div>
+        )}
+
+        {step === "pipeline" && selectedCampaign && !isTraining && (
+          <PipelineSelector
+            pipelines={selectedCampaign.pipelines}
+            onSelect={(p) => { setSelectedPipeline(p); setStep("pin"); }}
+            onBack={handleBackHome}
+          />
+        )}
+
         {step === "pipeline" && isTraining && (
-          <motion.div key="training-pipelines" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <PipelineSelector
-              pipelines={[
-                { ...trainingRpmPipeline, pin: "2346" },
-                { ...trainingHomeHealthPipeline, pin: "5698" }
-              ]}
-              onSelect={(pipeline) => {
-                if (pipeline.name === "RPM") {
-                  setIsTrainingRpm(true);
-                  setIsTrainingHomeHealth(false);
-                } else {
-                  setIsTrainingRpm(false);
-                  setIsTrainingHomeHealth(true);
-                }
-                setSelectedPipeline(pipeline);
-                setStep("pin");
-              }}
-              onBack={handleBackHome}
-              title="Select Campaign"
-            />
-          </motion.div>
-        )}
-
-        {/* PIN Entry Page */}
-        {step === "pin" && (
-          <motion.div key="pin" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <PinEntry
-              correctPin={
-                isTrainingRpm ? "2346" :
-                isTrainingHomeHealth ? "5698" :
-                isTraining ? "6693" :
-                isMgsRpm ? "5567" :
-                isHomeHealth ? "1128" : "0000"
+          <PipelineSelector
+            pipelines={[
+              { ...trainingRpmPipeline, pin: "2346" },
+              { ...trainingHomeHealthPipeline, pin: "5698" }
+            ]}
+            onSelect={(pipeline) => {
+              if (pipeline.name === "RPM") {
+                setIsTrainingRpm(true);
+                setIsTrainingHomeHealth(false);
+              } else {
+                setIsTrainingRpm(false);
+                setIsTrainingHomeHealth(true);
               }
-              onSuccess={handlePinSuccess}
-              onBack={handleBackHome}
-            />
-          </motion.div>
+              setSelectedPipeline(pipeline);
+              setStep("pin");
+            }}
+            onBack={handleBackHome}
+            title="Select Campaign"
+          />
         )}
 
-        {/* Resources Page */}
+        {step === "pin" && (
+          <PinEntry
+            correctPin={
+              isTrainingRpm ? "2346" :
+              isTrainingHomeHealth ? "5698" :
+              isTraining ? "6693" :
+              isMgsRpm ? "5567" :
+              isHomeHealth ? "1128" :
+              (!selectedCampaign ? "0055" : selectedPipeline?.pin || "")
+            }
+            onSuccess={handlePinSuccess}
+            onBack={handleBackHome}
+          />
+        )}
+
         {step === "resources" && selectedPipeline && (
-          <motion.div key="resources" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <ResourceGrid 
-              pipeline={selectedPipeline} 
-              onBack={handleBackHome} 
-            />
-          </motion.div>
+          <ResourceGrid pipeline={selectedPipeline} onBack={handleBackToPipelines} />
         )}
 
         {step === "admin" && <AdminGrid />}
