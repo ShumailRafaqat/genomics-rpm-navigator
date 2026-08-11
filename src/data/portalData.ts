@@ -146,7 +146,7 @@ export const mgsRpmPipeline: PipelineData = {
     { title: "RPM Intake Form", icon: "file-input", url: "https://biznexuss.com/form/rpm/ilsw9zvh", description: "RPM intake form" },
     { title: "RPM Main portal", icon: "globe", url: "https://crm.acudial.com/marketing/login/2fa.php", description: "RPM Main Portal Login" },
     { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
-    { title: "Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "Campaign script document" },
+    { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQB9ObSvFIBaRKhxMQzwhZJYAb2pnxlNLhBeq7SgzCTeyH8", description: "Campaign script document" },
     { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
     { title: "Elizabeth-bah-RPM", icon: "file-text", url: "/opening-script.mp3", description: "Sample Recording", isAudio: true },
     { title: "Jane-Fishkoff-RPM", icon: "file-text", url: "/benefits-pitch.mp3", description: "Sample Recording", isAudio: true },
@@ -192,7 +192,7 @@ export const trainingRpmPipeline: PipelineData = {
   pin: "2346",
   scheduleInfo: "RPM Training",
   resources: [
-      { title: "RPM Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQDY5m3sEC5XQZ9d8usAGnz9Abun-aMptS08spARVGPSlPg", description: "RPM Training Script" },
+      { title: "RPM Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQB9ObSvFIBaRKhxMQzwhZJYAb2pnxlNLhBeq7SgzCTeyH8", description: "RPM Training Script" },
     
       {
       title: "RPM Script Training",
