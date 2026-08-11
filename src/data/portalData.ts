@@ -86,7 +86,7 @@ export const campaigns: CampaignData[] = [
           { title: "AcuDial Portal", icon: "globe", url: "https://crm.acudial.com/marketing/portal.php", description: "AcuDial Marketing / RPM Portal" },
           { title: "Production Form", icon: "file-text", url: "https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRo6WzIEhk_vomOTHJmMveIL5qvvFMHLO0q_YZs0LoL4hlTQ/formResponse", description: "Daily Production Tracking Sheet" },
           { title: "Quality Guidelines", icon: "file-text", url: "#", description: "Yet to be uploaded" },
-          { title: "Script", icon: "scroll", url: "https://drive.google.com/file/d/1Hlr4DDpDbQn3KyRuCfr0XXjMyVSxgvju/view?usp=sharing", description: "Campaign script document" },
+          { title: "Script", icon: "scroll", url: "https://1drv.ms/b/c/eef37504b43a5cea/IQB9ObSvFIBaRKhxMQzwhZJYAb2pnxlNLhBeq7SgzCTeyH8", description: "Campaign script document" },
           { title: "States Coverage", icon: "map-pin", url: "https://docs.google.com/spreadsheets/d/1BXA195rmg4B_PIe4kEsQPRDhP9Obmfl-JgH88FvjTNk/edit?gid=147741", description: "Service coverage by state" },
           {
             title: "Jordan Smith Form",
